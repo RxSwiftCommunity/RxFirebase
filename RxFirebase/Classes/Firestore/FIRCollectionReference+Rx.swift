@@ -25,7 +25,7 @@ extension Reactive where Base: CollectionReference {
     public func addDocument(data: [String: Any]) -> Observable<DocumentReference> {
         return Observable<DocumentReference>.create { observer in
             var ref: DocumentReference?
-            let _ref = self.base.addDocument(data: data) { error in
+            ref = self.base.addDocument(data: data) { error in
                 if let error = error {
                     observer.onError(error)
                 } else if let ref = ref {
@@ -33,7 +33,6 @@ extension Reactive where Base: CollectionReference {
                 }
                 observer.onCompleted()
             }
-            ref = _ref
             return Disposables.create()
         }
     }

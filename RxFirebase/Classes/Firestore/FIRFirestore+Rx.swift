@@ -17,7 +17,7 @@ extension Reactive where Base: Firestore {
      * will return results from cache and any write operations will be queued until the network is
      * restored. The completion block, if provided, will be called once network usage has been disabled.
      */
-    func disableNetwork() -> Observable<Void> {
+    public func disableNetwork() -> Observable<Void> {
         return Observable.create { observer in
             self.base.disableNetwork(completion: { error in
                 guard let error = error else {
@@ -36,7 +36,7 @@ extension Reactive where Base: Firestore {
      * `disableNetworkWithCompletion`. Completion block, if provided, will be called once network uasge
      * has been enabled.
      */
-    func enableNetwork() -> Observable<Void> {
+    public func enableNetwork() -> Observable<Void> {
         return Observable.create { observer in
             self.base.enableNetwork(completion: { error in
                 guard let error = error else {
@@ -78,15 +78,15 @@ extension Reactive where Base: Firestore {
      * @param completion The block to call with the result or error of the transaction. This
      *     block will run even if the client is offline, unless the process is killed.
      */
-    func runTransaction(_ updateBlock: @escaping (Transaction, NSErrorPointer)->Any?) -> Observable<Any> {
+    public func runTransaction(_ updateBlock: @escaping (Transaction, NSErrorPointer)->Any?) -> Observable<Any?> {
         return Observable.create { observer in
             self.base.runTransaction(updateBlock) { value, error in
-                if let error = error {
-                    observer.onError(error)
-                } else if let value = value {
+                guard let error = error else {
                     observer.onNext(value)
+                    observer.onCompleted()
+                    return 
                 }
-                observer.onCompleted()
+                observer.onError(error)
             }
             return Disposables.create()
         }

@@ -39,7 +39,7 @@ extension Reactive where Base: Query {
      *
      * @return A FIRListenerRegistration that can be used to remove this listener.
      */
-    public func addSnapshotListener(options: QueryListenOptions? = nil) -> Observable<QuerySnapshot> {
+    public func listen(options: QueryListenOptions? = nil) -> Observable<QuerySnapshot> {
         return Observable<QuerySnapshot>.create { observer in
             let listener = self.base.addSnapshotListener(options: options) { snapshot, error in
                 if let error = error {
@@ -47,7 +47,6 @@ extension Reactive where Base: Query {
                 } else if let snapshot = snapshot {
                     observer.onNext(snapshot)
                 }
-                observer.onCompleted()
             }
             return Disposables.create {
                 listener.remove()

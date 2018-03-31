@@ -113,14 +113,13 @@ extension Reactive where Base: DocumentReference {
      *
      * @param completion a block to execute once the document has been successfully read.
      */
-    public func getDocument() -> Observable<DocumentSnapshot> {
-        return Observable<DocumentSnapshot>.create { observer in
+    public func getDocument() -> Observable<DocumentSnapshot?> {
+        return Observable.create { observer in
             self.base.getDocument { snapshot, error in
                 if let error = error {
                     observer.onError(error)
-                } else if let snapshot = snapshot {
-                    observer.onNext(snapshot)
                 }
+                observer.onNext(snapshot)
                 observer.onCompleted()
             }
             return Disposables.create()
@@ -135,7 +134,7 @@ extension Reactive where Base: DocumentReference {
      *
      * @return A FIRListenerRegistration that can be used to remove this listener.
      */
-    public func addSnapshotListener(options: DocumentListenOptions? = nil) -> Observable<DocumentSnapshot> {
+    public func listen(options: DocumentListenOptions? = nil) -> Observable<DocumentSnapshot> {
         return Observable<DocumentSnapshot>.create { observer in
             let listener = self.base.addSnapshotListener(options: options) { snapshot, error in
                 if let error = error {
@@ -143,7 +142,6 @@ extension Reactive where Base: DocumentReference {
                 } else if let snapshot = snapshot {
                     observer.onNext(snapshot)
                 }
-                observer.onCompleted()
             }
             return Disposables.create {
                 listener.remove()
