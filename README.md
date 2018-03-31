@@ -22,7 +22,7 @@ pod 'RxFirebase'
 
 ## Author
 
-Arnaud Dorgans, ad@lanoosphere.com
+Arnaud Dorgans, arnaud.dorgans@gmail.com
 
 ## License
 

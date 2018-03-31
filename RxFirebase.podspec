@@ -24,19 +24,27 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/Arnaud Dorgans/RxFirebase'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Arnaud Dorgans' => 'ad@lanoosphere.com' }
+  s.author           = { 'Arnaud Dorgans' => 'arnaud.dorgans@gmail.com' }
   s.source           = { :git => 'https://github.com/Arnaud Dorgans/RxFirebase.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
+    s.default_subspec = 'Core'
+    s.static_framework = true
+    s.dependency 'RxSwift', '~> 4'
+    s.dependency 'RxCocoa', '~> 4'
+    s.dependency 'FirebaseCore', '~> 4'
 
-  s.source_files = 'RxFirebase/Classes/**/*'
+    s.subspec 'Core' do |core|
+        core.source_files = 'RxFirebase/Classes/Core/**/*'
+    end
+    s.subspec 'Database' do |database|
+        database.source_files = 'RxFirebase/Classes/Database/**/*'
+        database.dependency 'FirebaseDatabase', '~> 4'
+    end
+    s.subspec 'Firestore' do |firestore|
+        firestore.source_files = 'RxFirebase/Classes/Firestore/**/*'
+        firestore.dependency 'FirebaseFirestore', '~> 0'
+    end
   
-  # s.resource_bundles = {
-  #   'RxFirebase' => ['RxFirebase/Assets/*.png']
-  # }
-
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
 end

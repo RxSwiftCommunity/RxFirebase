@@ -1,7 +1,8 @@
 use_frameworks!
 
 target 'RxFirebase_Example' do
-  pod 'RxFirebase', :path => '../'
+  pod 'RxFirebase/Firestore', :path => '../'
+  pod 'RxFirebase/Core', :path => '../'
 
   target 'RxFirebase_Tests' do
     inherit! :search_paths
@@ -9,3 +10,4 @@ target 'RxFirebase_Example' do
     
   end
 end
+
