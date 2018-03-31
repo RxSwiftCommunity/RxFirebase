@@ -193,7 +193,7 @@ db.rx.runTransaction { transaction, errorPointer in
     }).disposed(by: disposeBag)
     
     // https://firebase.google.com/docs/firestore/manage-data/transactions
-``
+```
 
 ## Author
 
