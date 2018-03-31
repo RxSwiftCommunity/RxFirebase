@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/Arnaud Dorgans/RxFirebase'
+  s.homepage         = 'https://github.com/arnauddorgans/RxFirebase'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Arnaud Dorgans' => 'arnaud.dorgans@gmail.com' }
-  s.source           = { :git => 'https://github.com/Arnaud Dorgans/RxFirebase.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/arnauddorgans/RxFirebase.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
