@@ -35,4 +35,5 @@ Carthage/Build
 # `pod install` in .travis.yml
 #
 # Pods/
-/Example/RxFirebase.xcworkspace/xcshareddata
+/Example/RxFirebase.xcworkspace
+/Example/Pods

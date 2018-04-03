@@ -18,6 +18,7 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'RxFirebase/Firestore'
+pod 'RxFirebase/RemoteConfig'
 ```
 
 ## Usage
@@ -76,7 +77,7 @@ db.collection("cities")
 // https://firebase.google.com/docs/firestore/manage-data/add-data
 ```
 
-Get a document
+Get a document:
 ```swift
 let db = Firestore.firestore()
 
@@ -97,7 +98,7 @@ db.collection("cities")
 // https://firebase.google.com/docs/firestore/query-data/get-data
 ```
 
-Get Realtime Updates
+Get Realtime Updates:
 ```swift
 let db = Firestore.firestore()
 
@@ -135,7 +136,7 @@ db.collection("cities")
 // https://firebase.google.com/docs/firestore/query-data/listen
 ```
 
-Batched writes
+Batched writes:
 ```swift
 let db = Firestore.firestore()
 
@@ -158,7 +159,7 @@ batch.rx
 // https://firebase.google.com/docs/firestore/manage-data/transactions
 ```
 
-Transactions
+Transactions:
 ```swift
 let db = Firestore.firestore()
 let sfReference = db.collection("cities").document("SF")
@@ -193,6 +194,26 @@ db.rx.runTransaction { transaction, errorPointer in
     }).disposed(by: disposeBag)
     
     // https://firebase.google.com/docs/firestore/manage-data/transactions
+```
+
+### RemoteConfig
+
+Fetch:
+```swift
+// TimeInterval is set to expirationDuration here, indicating the next fetch request will use
+// data fetched from the Remote Config service, rather than cached parameter values, if cached
+// parameter values are more than expirationDuration seconds old. See Best Practices in the
+// README for more information.
+RemoteConfig.remoteConfig()
+    .rx
+    .fetch(withExpirationDuration: TimeInterval(expirationDuration), activateFetched: true)
+    .subscribe(onNext: { status in
+        print("Config fetched! with success:\(status == .success)")
+    }, onError: { error in
+        print("Error: \(error)")
+    }).disposed(by: disposeBag)
+
+    // https://firebase.google.com/docs/remote-config/ios
 ```
 
 ## Author
