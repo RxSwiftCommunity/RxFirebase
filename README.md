@@ -216,10 +216,9 @@ RemoteConfig.remoteConfig()
     // https://firebase.google.com/docs/remote-config/ios
 ```
 
-## Author
-
-Arnaud Dorgans, arnaud.dorgans@gmail.com
-
 ## License
 
+This library belongs to _RxSwiftCommunity_.
+
 RxFirebase is available under the MIT license. See the LICENSE file for more info.
+
