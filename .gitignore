@@ -37,3 +37,4 @@ Carthage/Build
 # Pods/
 /Example/RxFirebase.xcworkspace
 /Example/Pods
+/Example/RxFirebase.xcodeproj/xcshareddata
