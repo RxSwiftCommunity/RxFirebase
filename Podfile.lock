@@ -62,15 +62,15 @@ PODS:
   - RxCocoa (4.1.2):
     - RxSwift (~> 4.0)
   - RxFirebase/Firestore (0.1.1):
-    - FirebaseCore (~> 4)
-    - FirebaseFirestore (~> 0)
-    - RxCocoa (~> 4)
-    - RxSwift (~> 4)
+    - FirebaseCore (>= 4.0.0)
+    - FirebaseFirestore (>= 0.10.4)
+    - RxCocoa (>= 4.0.0)
+    - RxSwift (>= 4.0.0)
   - RxFirebase/RemoteConfig (0.1.1):
-    - FirebaseCore (~> 4)
-    - FirebaseRemoteConfig (~> 2)
-    - RxCocoa (~> 4)
-    - RxSwift (~> 4)
+    - FirebaseCore (>= 4.0.0)
+    - FirebaseRemoteConfig (>= 2.1.2)
+    - RxCocoa (>= 4.0.0)
+    - RxSwift (>= 4.0.0)
   - RxSwift (4.1.2)
 
 DEPENDENCIES:
@@ -118,9 +118,9 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
-  RxFirebase: c1e21c544d201d9aa460b8871803573f85d2a6e5
+  RxFirebase: 73346eee66d43541e98e221c50f62965962680e5
   RxSwift: e49536837d9901277638493ea537394d4b55f570
 
-PODFILE CHECKSUM: 09bed75ac8068bae654275c266aee2f118ccc9da
+PODFILE CHECKSUM: dec701325dd7d7d9c7b088863aa8e6cc08d592cc
 
 COCOAPODS: 1.5.0

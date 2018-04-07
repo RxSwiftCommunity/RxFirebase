@@ -32,16 +32,16 @@ Including for now FirebaseCore
 #s.swift_version = '4.0'
   s.ios.deployment_target = '8.0'
     s.static_framework = true
-    s.dependency 'RxSwift', '~> 4'
-    s.dependency 'RxCocoa', '~> 4'
-    s.dependency 'FirebaseCore', '~> 4'
+    s.dependency 'RxSwift', '>= 4.0.0'
+    s.dependency 'RxCocoa', '>= 4.0.0'
+    s.dependency 'FirebaseCore', '>= 4.0.0'
 
     s.subspec 'Firestore' do |firestore|
         firestore.source_files = 'Sources/Firestore/**/*'
-        firestore.dependency 'FirebaseFirestore', '~> 0'
+        firestore.dependency 'FirebaseFirestore', '>= 0.10.4'
     end
     s.subspec 'RemoteConfig' do |remote|
         remote.source_files = 'Sources/RemoteConfig/**/*'
-        remote.dependency 'FirebaseRemoteConfig', '~> 2'
+        remote.dependency 'FirebaseRemoteConfig', '>= 2.1.2'
     end
 end
