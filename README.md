@@ -11,6 +11,10 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Requirements
 
+Xcode 9.0
+
+Swift 4.0
+
 ## Installation
 
 RxFirebase is available through [CocoaPods](http://cocoapods.org). To install
