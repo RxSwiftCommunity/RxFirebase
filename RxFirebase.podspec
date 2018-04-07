@@ -30,7 +30,7 @@ Including for now FirebaseCore
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
 s.cocoapods_version = '>= 1.4.0'
-#s.swift_version = '4.0'
+s.swift_version = '4.0'
   s.ios.deployment_target = '8.0'
 #  s.tvos.deployment_target = '10.0'
     s.static_framework = true
