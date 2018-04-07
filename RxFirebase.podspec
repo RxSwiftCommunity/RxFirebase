@@ -37,13 +37,11 @@ Including for now FirebaseCore
     s.dependency 'FirebaseCore', '~> 4'
 
     s.subspec 'Firestore' do |firestore|
-        firestore.source_files = 'RxFirebase/Classes/Firestore/**/*'
+        firestore.source_files = 'Sources/Firestore/**/*'
         firestore.dependency 'FirebaseFirestore', '~> 0'
     end
     s.subspec 'RemoteConfig' do |remote|
-        remote.source_files = 'RxFirebase/Classes/RemoteConfig/**/*'
+        remote.source_files = 'Sources/RemoteConfig/**/*'
         remote.dependency 'FirebaseRemoteConfig', '~> 2'
     end
-    
-  
 end
