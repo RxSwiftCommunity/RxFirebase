@@ -29,19 +29,21 @@ Including for now FirebaseCore
   s.source           = { :git => 'https://github.com/arnauddorgans/RxFirebase.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
+s.cocoapods_version = '>= 1.4.0'
 #s.swift_version = '4.0'
   s.ios.deployment_target = '8.0'
+#  s.tvos.deployment_target = '10.0'
     s.static_framework = true
-    s.dependency 'RxSwift', '>= 4.0.0'
-    s.dependency 'RxCocoa', '>= 4.0.0'
-    s.dependency 'FirebaseCore', '>= 4.0.0'
+    s.dependency 'RxSwift', '~> 4'
+    s.dependency 'RxCocoa', '~> 4'
+    s.dependency 'FirebaseCore', '~> 4'
 
     s.subspec 'Firestore' do |firestore|
         firestore.source_files = 'Sources/Firestore/**/*'
-        firestore.dependency 'FirebaseFirestore', '>= 0.10.4'
+        firestore.dependency 'FirebaseFirestore', '~> 0'
     end
     s.subspec 'RemoteConfig' do |remote|
         remote.source_files = 'Sources/RemoteConfig/**/*'
-        remote.dependency 'FirebaseRemoteConfig', '>= 2.1.2'
+        remote.dependency 'FirebaseRemoteConfig', '~> 2'
     end
 end
