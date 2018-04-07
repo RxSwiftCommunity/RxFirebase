@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
     
     s.description      = <<-DESC
     RxSwift extensions for Firebase.
-    Including for now FirebaseCore
+    Including for now Firestore, RemoteConfig
     DESC
     
     s.homepage         = 'https://github.com/RxSwiftCommunity/RxFirebase'
