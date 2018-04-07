@@ -15,6 +15,10 @@ PODS:
     - nanopb (~> 0.3)
   - FirebaseCore (4.0.18):
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+  - FirebaseDatabase (4.1.5):
+    - FirebaseAnalytics (~> 4.1)
+    - FirebaseCore (~> 4.0)
+    - leveldb-library (~> 1.18)
   - FirebaseFirestore (0.10.4):
     - FirebaseAnalytics (~> 4.1)
     - FirebaseCore (~> 4.0)
@@ -61,19 +65,22 @@ PODS:
   - Protobuf (3.5.0)
   - RxCocoa (4.1.2):
     - RxSwift (~> 4.0)
+  - RxFirebase/Database (0.1.1):
+    - FirebaseDatabase (~> 4)
+    - RxCocoa (~> 4)
+    - RxSwift (~> 4)
   - RxFirebase/Firestore (0.1.1):
-    - FirebaseCore (~> 4)
     - FirebaseFirestore (~> 0)
     - RxCocoa (~> 4)
     - RxSwift (~> 4)
   - RxFirebase/RemoteConfig (0.1.1):
-    - FirebaseCore (~> 4)
     - FirebaseRemoteConfig (~> 2)
     - RxCocoa (~> 4)
     - RxSwift (~> 4)
   - RxSwift (4.1.2)
 
 DEPENDENCIES:
+  - RxFirebase/Database (from `./`)
   - RxFirebase/Firestore (from `./`)
   - RxFirebase/RemoteConfig (from `./`)
 
@@ -83,6 +90,7 @@ SPEC REPOS:
     - FirebaseABTesting
     - FirebaseAnalytics
     - FirebaseCore
+    - FirebaseDatabase
     - FirebaseFirestore
     - FirebaseInstanceID
     - FirebaseRemoteConfig
@@ -106,6 +114,7 @@ SPEC CHECKSUMS:
   FirebaseABTesting: d07d0ee833b842d5153549e4c7e2e2cb1c23a3f9
   FirebaseAnalytics: 3dfae28d4a5e06f86c4fae830efc2ad3fadb19bc
   FirebaseCore: b981f47e5254cbcfdeb483355300d743f6fcab2c
+  FirebaseDatabase: 5f0bc6134c5c237cf55f9e1249d406770a75eafd
   FirebaseFirestore: 796df79c29cf8ecf806564f4d347665bdafa6ef0
   FirebaseInstanceID: 8d20d890d65c917f9f7d9950b6e10a760ad34321
   FirebaseRemoteConfig: df64ce784a45e9b9d4988030a59da6baede8bdb0
@@ -118,9 +127,9 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
-  RxFirebase: d7c5710d0f9054d29e093cb5192c43067c41d969
+  RxFirebase: c33fe093e4420b45b804ef37f88d632b66c5f525
   RxSwift: e49536837d9901277638493ea537394d4b55f570
 
-PODFILE CHECKSUM: 1d55d49cd3c41d34e17511b3cad78386229476e2
+PODFILE CHECKSUM: fde8e8f30c4a2721a77fa8212056b41e090fe118
 
 COCOAPODS: 1.5.0
