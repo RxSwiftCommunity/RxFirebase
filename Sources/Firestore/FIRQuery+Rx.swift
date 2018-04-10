@@ -14,9 +14,6 @@ extension Reactive where Base: Query {
     
     /**
      * Reads the documents matching this query.
-     *
-     * @param completion a block to execute once the documents have been successfully read.
-     *     documentSet will be `nil` only if error is `non-nil`.
      */
     public func getDocuments() -> Observable<QuerySnapshot> {
         return Observable<QuerySnapshot>.create { observer in
@@ -33,12 +30,22 @@ extension Reactive where Base: Query {
     }
     
     /**
+     * Reads the first document matching this query.
+     */
+    public func getFirstDocument() -> Observable<QueryDocumentSnapshot> {
+        return self.getDocuments()
+            .map { snapshot in
+                guard let document = snapshot.documents.first else {
+                    throw NSError(domain: FirestoreErrorDomain, code: FirestoreErrorCode.notFound.rawValue, userInfo: nil)
+                }
+                return document
+            }
+    }
+    
+    /**
      * Attaches a listener for QuerySnapshot events.
      *
      * @param options Options controlling the listener behavior.
-     * @param listener The listener to attach.
-     *
-     * @return A FIRListenerRegistration that can be used to remove this listener.
      */
     public func listen(options: QueryListenOptions? = nil) -> Observable<QuerySnapshot> {
         return Observable<QuerySnapshot>.create { observer in
