@@ -114,14 +114,17 @@ extension Reactive where Base: DocumentReference {
      *
      * @param completion a block to execute once the document has been successfully read.
      */
-    public func getDocument() -> Observable<DocumentSnapshot?> {
+    public func getDocument() -> Observable<DocumentSnapshot> {
         return Observable.create { observer in
             self.base.getDocument { snapshot, error in
                 if let error = error {
                     observer.onError(error)
+                } else if let snapshot = snapshot, snapshot.exists {
+                    observer.onNext(snapshot)
+                    observer.onCompleted()
+                } else {
+                    observer.onError(NSError(domain: FirestoreErrorDomain, code: FirestoreErrorCode.notFound.rawValue, userInfo: nil))
                 }
-                observer.onNext(snapshot)
-                observer.onCompleted()
             }
             return Disposables.create()
         }
