@@ -134,9 +134,6 @@ extension Reactive where Base: DocumentReference {
      * Attaches a listener for DocumentSnapshot events.
      *
      * @param options Options controlling the listener behavior.
-     * @param listener The listener to attach.
-     *
-     * @return A FIRListenerRegistration that can be used to remove this listener.
      */
     public func listen(options: DocumentListenOptions? = nil) -> Observable<DocumentSnapshot> {
         return Observable<DocumentSnapshot>.create { observer in
