@@ -35,7 +35,7 @@ extension Reactive where Base: Query {
     public func getFirstDocument() -> Observable<QueryDocumentSnapshot> {
         return self.getDocuments()
             .map { snapshot in
-                guard let document = snapshot.documents.first else {
+                guard let document = snapshot.documents.first(where: { $0.exists }) else {
                     throw NSError(domain: FirestoreErrorDomain, code: FirestoreErrorCode.notFound.rawValue, userInfo: nil)
                 }
                 return document
