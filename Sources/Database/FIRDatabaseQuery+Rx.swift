@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import FirebaseDatabase
 
-typealias PreviousSiblingKeyDataSnapshot = (snapshot: DataSnapshot, prevKey: String?)
+public typealias PreviousSiblingKeyDataSnapshot = (snapshot: DataSnapshot, prevKey: String?)
 
 extension Reactive where Base: DatabaseQuery {
     
@@ -29,7 +29,7 @@ extension Reactive where Base: DatabaseQuery {
      * @param cancelBlock The block that should be called if this client no longer has permission to receive these events
      * @return A handle used to unregister this block later using removeObserverWithHandle:
      */
-    func observe(_ eventType: DataEventType) -> Observable<DataSnapshot> {
+    public func observeEvent(_ eventType: DataEventType) -> Observable<DataSnapshot> {
         return Observable.create { observer in
             let handle = self.base.observe(eventType, with: { snapshot in
                 observer.onNext(snapshot)
@@ -58,7 +58,7 @@ extension Reactive where Base: DatabaseQuery {
      * @param cancelBlock The block that should be called if this client no longer has permission to receive these events
      * @return A handle used to unregister this block later using removeObserverWithHandle:
      */
-    func observe(_ eventType: DataEventType) -> Observable<PreviousSiblingKeyDataSnapshot> {
+    public func observeEventAndPreviousSiblingKey(_ eventType: DataEventType) -> Observable<PreviousSiblingKeyDataSnapshot> {
         return Observable.create { observer in
             let handle = self.base.observe(eventType, andPreviousSiblingKeyWith: { snapshot, prevKey in
                 observer.onNext(PreviousSiblingKeyDataSnapshot(snapshot, prevKey))
@@ -80,7 +80,7 @@ extension Reactive where Base: DatabaseQuery {
      * @param block The block that should be called.  It is passed the data as a FIRDataSnapshot.
      * @param cancelBlock The block that will be called if you don't have permission to access this data
      */
-    func observeSingleEvent(_ eventType: DataEventType) -> Observable<DataSnapshot> {
+    public func observeSingleEvent(_ eventType: DataEventType) -> Observable<DataSnapshot> {
         return Observable.create { observer in
             self.base.observeSingleEvent(of: eventType, with: { snapshot in
                 observer.onNext(snapshot)
@@ -102,7 +102,7 @@ extension Reactive where Base: DatabaseQuery {
      * @param block The block that should be called.  It is passed the data as a FIRDataSnapshot and the previous child's key.
      * @param cancelBlock The block that will be called if you don't have permission to access this data
      */
-    func observeSingleEvent(_ eventType: DataEventType) -> Observable<PreviousSiblingKeyDataSnapshot> {
+    public func observeSingleEventAndPreviousSiblingKey(_ eventType: DataEventType) -> Observable<PreviousSiblingKeyDataSnapshot> {
         return Observable.create { observer in
             self.base.observeSingleEvent(of: eventType, andPreviousSiblingKeyWith: { snapshot, prevKey in
                 observer.onNext(PreviousSiblingKeyDataSnapshot(snapshot, prevKey))
