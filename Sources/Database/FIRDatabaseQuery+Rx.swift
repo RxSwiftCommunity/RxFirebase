@@ -11,6 +11,8 @@ import RxSwift
 import RxCocoa
 import FirebaseDatabase
 
+typealias PreviousSiblingKeyDataSnapshot = (snapshot: DataSnapshot, prevKey: String?)
+
 extension Reactive where Base: DatabaseQuery {
     
     /**
@@ -56,10 +58,10 @@ extension Reactive where Base: DatabaseQuery {
      * @param cancelBlock The block that should be called if this client no longer has permission to receive these events
      * @return A handle used to unregister this block later using removeObserverWithHandle:
      */
-    func observe(_ eventType: DataEventType) -> Observable<(snapshot: DataSnapshot, prevKey: String?)> {
+    func observe(_ eventType: DataEventType) -> Observable<PreviousSiblingKeyDataSnapshot> {
         return Observable.create { observer in
-            let handle = self.base.observe(eventType, andPreviousSiblingKeyWith: { (snapshot, prevKey) in
-                observer.onNext((snapshot, prevKey))
+            let handle = self.base.observe(eventType, andPreviousSiblingKeyWith: { snapshot, prevKey in
+                observer.onNext(PreviousSiblingKeyDataSnapshot(snapshot, prevKey))
             }, withCancel: { error in
                 observer.onError(error)
             })
@@ -69,11 +71,46 @@ extension Reactive where Base: DatabaseQuery {
         }
     }
     
-    func observeSingleEvent(_ eventType: DataEventType) {
-        self.base.observeSingleEvent(of: eventType, with: { snapshot in
-            
-        }, withCancel: { error in
-            
-        })
+    /**
+     * This is equivalent to observeEventType:withBlock:, except the block is immediately canceled after the initial data is returned.
+     *
+     * The cancelBlock will be called if you do not have permission to read data at this location.
+     *
+     * @param eventType The type of event to listen for.
+     * @param block The block that should be called.  It is passed the data as a FIRDataSnapshot.
+     * @param cancelBlock The block that will be called if you don't have permission to access this data
+     */
+    func observeSingleEvent(_ eventType: DataEventType) -> Observable<DataSnapshot> {
+        return Observable.create { observer in
+            self.base.observeSingleEvent(of: eventType, with: { snapshot in
+                observer.onNext(snapshot)
+                observer.onCompleted()
+            }, withCancel: { error in
+                observer.onError(error)
+            })
+            return Disposables.create()
+        }
+    }
+    
+    /**
+     * This is equivalent to observeEventType:withBlock:, except the block is immediately canceled after the initial data is returned. In addition, for FIRDataEventTypeChildAdded, FIRDataEventTypeChildMoved, and
+     * FIRDataEventTypeChildChanged events, your block will be passed the key of the previous node by priority order.
+     *
+     * The cancelBlock will be called if you do not have permission to read data at this location.
+     *
+     * @param eventType The type of event to listen for.
+     * @param block The block that should be called.  It is passed the data as a FIRDataSnapshot and the previous child's key.
+     * @param cancelBlock The block that will be called if you don't have permission to access this data
+     */
+    func observeSingleEvent(_ eventType: DataEventType) -> Observable<PreviousSiblingKeyDataSnapshot> {
+        return Observable.create { observer in
+            self.base.observeSingleEvent(of: eventType, andPreviousSiblingKeyWith: { snapshot, prevKey in
+                observer.onNext(PreviousSiblingKeyDataSnapshot(snapshot, prevKey))
+                observer.onCompleted()
+            }, withCancel: { error in
+                observer.onError(error)
+            })
+            return Disposables.create()
+        }
     }
 }
