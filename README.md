@@ -5,10 +5,6 @@
 [![License](https://img.shields.io/cocoapods/l/RxFirebase.svg?style=flat)](http://cocoapods.org/pods/RxFirebase)
 [![Platform](https://img.shields.io/cocoapods/p/RxFirebase.svg?style=flat)](http://cocoapods.org/pods/RxFirebase)
 
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
 ## Requirements
 
 Xcode 9.0
@@ -23,12 +19,103 @@ it, simply add the following line to your Podfile:
 ```ruby
 pod 'RxFirebase/Firestore'
 pod 'RxFirebase/RemoteConfig'
+pod 'RxFirebase/Database'
 ```
 
 ## Usage
 
 ```swift
 import RxFirebase
+```
+
+- [Database](#database)
+- [Firestore](#firestore)
+- [RemoteConfig](#remoteconfig)
+
+### Database
+
+Basic write operation:
+```swift
+let ref = Database.database().reference()
+
+ref.child("users")
+    .child("1")
+    .rx
+    .setValue(["username": "Arnonymous"])
+    .subscribe(onNext: { _ in
+        print("Document successfully updated")
+    }).disposed(by: disposeBag)
+    
+// https://firebase.google.com/docs/database/ios/read-and-write#basic_write
+```
+
+Listen for value events:
+```swift
+let ref = Database.database().reference()
+
+ref.child("users")
+    .child("1")
+    .rx
+    .observeEvent(.value)
+    .subscribe(onNext: { snapshot in
+        print("Value:\(snapshot.value)")
+    }).disposed(by: disposeBag)
+    
+// https://firebase.google.com/docs/database/ios/read-and-write#listen_for_value_events
+```
+
+Read data once:
+```swift
+let ref = Database.database().reference()
+
+ref.child("users")
+    .child("1")
+    .rx
+    .observeSingleEvent(.value)
+    .subscribe(onNext: { snapshot in
+        print("Value:\(snapshot.value)")
+    }).disposed(by: disposeBag)
+    
+// https://firebase.google.com/docs/database/ios/read-and-write#read_data_once
+```
+
+Update specific fields:
+```swift
+let ref = Database.database().reference()
+
+let childUpdates = ["/posts/\(key)": post,
+                    "/user-posts/\(userID)/\(key)/": post]
+ref.rx.updateChildValues(childUpdates)
+    .subscribe(onNext: { _ in
+        // Success
+    }).disposed(by: disposeBag)
+
+// https://firebase.google.com/docs/database/ios/read-and-write#update_specific_fields
+```
+
+Delete data:
+```swift
+let ref = Database.database().reference()
+
+ref.rx.removeValue()
+    .subscribe(onNext: { _ in
+        // Success
+    }).disposed(by: disposeBag)
+    
+// https://firebase.google.com/docs/database/ios/read-and-write#delete_data
+```
+
+Save data as transactions
+```swift
+let ref = Database.database().reference()
+
+ref.rx.runTransactionBlock { currentData in
+        // TransactionResult
+    }.subscribe(onNext: { _ in
+        // Success
+    }).disposed(by: disposeBag)
+    
+// https://firebase.google.com/docs/database/ios/read-and-write#save_data_as_transactions
 ```
 
 ### Firestore

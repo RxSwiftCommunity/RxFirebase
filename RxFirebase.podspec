@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'RxFirebase'
-    s.version          = '0.1.1'
+    s.version          = '0.2'
     s.summary          = 'RxSwift extensions for Firebase.'
     
     # This description is used to generate tags and improve search results.
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
     
     s.description      = <<-DESC
     RxSwift extensions for Firebase.
-    Including for now Firestore, RemoteConfig
+    Including for now Database, Firestore, RemoteConfig
     DESC
     
     s.homepage         = 'https://github.com/RxSwiftCommunity/RxFirebase'
@@ -38,10 +38,14 @@ Pod::Spec.new do |s|
     
     s.subspec 'Firestore' do |firestore|
         firestore.source_files = 'Sources/Firestore/**/*'
-        firestore.dependency 'FirebaseFirestore', '~> 0'
+        firestore.dependency 'FirebaseFirestore', '~> 0.12'
     end
     s.subspec 'RemoteConfig' do |remote|
         remote.source_files = 'Sources/RemoteConfig/**/*'
-        remote.dependency 'FirebaseRemoteConfig', '~> 2'
+        remote.dependency 'FirebaseRemoteConfig', '~> 3'
+    end
+    s.subspec 'Database' do |database|
+        database.source_files = 'Sources/Database/**/*'
+        database.dependency 'FirebaseDatabase', '~> 5'
     end
 end

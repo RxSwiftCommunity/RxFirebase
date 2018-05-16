@@ -6,7 +6,6 @@
 //  Copyright © 2018 RxSwiftCommunity. All rights reserved.
 //
 
-import UIKit
 import RxSwift
 import FirebaseRemoteConfig
 
@@ -14,6 +13,7 @@ extension Reactive where Base: RemoteConfig {
     
     /// Fetches Remote Config data with a callback. Call activateFetched to make fetched data available
     /// to your app.
+    /// @param activateFetched   Make fetched data available to your app.
     /// @param completionHandler Fetch operation callback.
     public func fetch(activateFetched: Bool = false) -> Observable<RemoteConfigFetchStatus> {
         return Observable<RemoteConfigFetchStatus>.create { observer in
@@ -33,9 +33,9 @@ extension Reactive where Base: RemoteConfig {
     }
     
     /// Fetches Remote Config data and sets a duration that specifies how long config data lasts.
-    /// Call activateFetched to make fetched data available to your app.
     /// @param expirationDuration  Duration that defines how long fetched config data is available, in
     ///                            seconds. When the config data expires, a new fetch is required.
+    /// @param activateFetched     Make fetched data available to your app.
     /// @param completionHandler   Fetch operation callback.
     public func fetch(withExpirationDuration duration: TimeInterval, activateFetched: Bool = false) -> Observable<RemoteConfigFetchStatus> {
         return Observable<RemoteConfigFetchStatus>.create { observer in

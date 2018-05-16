@@ -46,12 +46,31 @@ extension Reactive where Base: Query {
     
     /**
      * Attaches a listener for QuerySnapshot events.
-     *
-     * @param options Options controlling the listener behavior.
      */
-    public func listen(options: QueryListenOptions? = nil) -> Observable<QuerySnapshot> {
+    public func listen() -> Observable<QuerySnapshot> {
         return Observable<QuerySnapshot>.create { observer in
-            let listener = self.base.addSnapshotListener(options: options) { snapshot, error in
+            let listener = self.base.addSnapshotListener { snapshot, error in
+                if let error = error {
+                    observer.onError(error)
+                } else if let snapshot = snapshot {
+                    observer.onNext(snapshot)
+                }
+            }
+            return Disposables.create {
+                listener.remove()
+            }
+        }
+    }
+    
+    /**
+     * Attaches a listener for QuerySnapshot events.
+     *
+     * @param includeMetadataChanges Whether metadata-only changes (i.e. only
+     *     `FIRDocumentSnapshot.metadata` changed) should trigger snapshot events.
+     */
+    public func listen(includeMetadataChanges: Bool) -> Observable<QuerySnapshot> {
+        return Observable<QuerySnapshot>.create { observer in
+            let listener = self.base.addSnapshotListener(includeMetadataChanges: includeMetadataChanges) { snapshot, error in
                 if let error = error {
                     observer.onError(error)
                 } else if let snapshot = snapshot {

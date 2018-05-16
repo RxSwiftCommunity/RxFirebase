@@ -38,19 +38,19 @@ extension Reactive where Base: DocumentReference {
     
     /**
      * Writes to the document referred to by this DocumentReference. If the document does not yet
-     * exist, it will be created. If you pass `FIRSetOptions`, the provided data will be merged into
-     * an existing document.
+     * exist, it will be created. If you pass `merge:YES`, the provided data will be merged into
+     * any existing document.
      *
      * @param documentData An `NSDictionary` containing the fields that make up the document
      * to be written.
-     * @param options A `FIRSetOptions` used to configure the set behavior.
+     * @param merge Whether to merge the provided data into any existing document.
      * @param completion A block to execute once the document has been successfully written to the
      *     server. This block will not be called while the client is offline, though local
      *     changes will be visible immediately.
      */
-    public func setData(_ documentData: [String: Any], options: SetOptions) -> Observable<Void> {
+    public func setData(_ documentData: [String: Any], merge: Bool) -> Observable<Void> {
         return Observable<Void>.create { observer in
-            self.base.setData(documentData, options: options) { error in
+            self.base.setData(documentData, merge: merge) { error in
                 guard let error = error else {
                     observer.onNext(())
                     observer.onCompleted()
@@ -133,11 +133,30 @@ extension Reactive where Base: DocumentReference {
     /**
      * Attaches a listener for DocumentSnapshot events.
      *
-     * @param options Options controlling the listener behavior.
+     * @param includeMetadataChanges Whether metadata-only changes (i.e. only
+     *     `FIRDocumentSnapshot.metadata` changed) should trigger snapshot events.
      */
-    public func listen(options: DocumentListenOptions? = nil) -> Observable<DocumentSnapshot> {
+    public func listen(includeMetadataChanges: Bool) -> Observable<DocumentSnapshot> {
         return Observable<DocumentSnapshot>.create { observer in
-            let listener = self.base.addSnapshotListener(options: options) { snapshot, error in
+            let listener = self.base.addSnapshotListener(includeMetadataChanges: includeMetadataChanges) { snapshot, error in
+                if let error = error {
+                    observer.onError(error)
+                } else if let snapshot = snapshot {
+                    observer.onNext(snapshot)
+                }
+            }
+            return Disposables.create {
+                listener.remove()
+            }
+        }
+    }
+    
+    /**
+     * Attaches a listener for DocumentSnapshot events.
+     */
+    public func listen() -> Observable<DocumentSnapshot> {
+        return Observable<DocumentSnapshot>.create { observer in
+            let listener = self.base.addSnapshotListener() { snapshot, error in
                 if let error = error {
                     observer.onError(error)
                 } else if let snapshot = snapshot {
