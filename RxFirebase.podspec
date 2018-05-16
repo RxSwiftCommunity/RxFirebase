@@ -42,10 +42,10 @@ Pod::Spec.new do |s|
     end
     s.subspec 'RemoteConfig' do |remote|
         remote.source_files = 'Sources/RemoteConfig/**/*'
-        remote.dependency 'FirebaseRemoteConfig', '~> 2'
+        remote.dependency 'FirebaseRemoteConfig', '~> 3'
     end
     s.subspec 'Database' do |database|
         database.source_files = 'Sources/Database/**/*'
-        database.dependency 'FirebaseDatabase', '~> 4'
+        database.dependency 'FirebaseDatabase', '~> 5'
     end
 end
