@@ -5,10 +5,6 @@
 [![License](https://img.shields.io/cocoapods/l/RxFirebase.svg?style=flat)](http://cocoapods.org/pods/RxFirebase)
 [![Platform](https://img.shields.io/cocoapods/p/RxFirebase.svg?style=flat)](http://cocoapods.org/pods/RxFirebase)
 
-## Example
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
 ## Requirements
 
 Xcode 9.0
@@ -31,6 +27,10 @@ pod 'RxFirebase/Database'
 ```swift
 import RxFirebase
 ```
+
+- [Database](#database)
+- [Firestore](#firestore)
+- [RemoteConfig](#remoteconfig)
 
 ### Database
 
