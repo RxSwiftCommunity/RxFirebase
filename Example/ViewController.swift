@@ -8,7 +8,6 @@
 
 import UIKit
 import RxFirebase
-import FirebaseRemoteConfig
 
 class ViewController: UIViewController {
 

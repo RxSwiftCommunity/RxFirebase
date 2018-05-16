@@ -214,7 +214,7 @@ extension Reactive where Base: DatabaseReference {
      * @param completionBlock This block will be triggered once the transaction is complete, whether it was successful or not. It will indicate if there was an error, whether or not the data was committed, and what the current value of the data at this location is.
      * @param localEvents Set this to NO to suppress events raised for intermediate states, and only get events based on the final state of the transaction.
      */
-    public func runTransactionBlock(_ block: @escaping (MutableData) -> TransactionResult, withLocalEvents: Bool = true) -> Observable<DatabaseReferenceTransactionResult> {
+    public func runTransactionBlock(_ block: @escaping (MutableData) -> TransactionResult, withLocalEvents: Bool) -> Observable<DatabaseReferenceTransactionResult> {
         return Observable.create { observer in
             self.base.runTransactionBlock(block, andCompletionBlock: { error, committed, snapshot in
                 guard let error = error else {
@@ -226,5 +226,24 @@ extension Reactive where Base: DatabaseReference {
             }, withLocalEvents: withLocalEvents)
             return Disposables.create()
         }
+    }
+    
+    /**
+     * Performs an optimistic-concurrency transactional update to the data at this location. Your block will be called with a FIRMutableData
+     * instance that contains the current data at this location. Your block should update this data to the value you
+     * wish to write to this location, and then return an instance of FIRTransactionResult with the new data.
+     *
+     * If, when the operation reaches the server, it turns out that this client had stale data, your block will be run
+     * again with the latest data from the server.
+     *
+     * When your block is run, you may decide to abort the transaction by return [FIRTransactionResult abort].
+     *
+     * Since your block may be run multiple times, this client could see several immediate states that don't exist on the server. You can suppress those immediate states until the server confirms the final state of the transaction.
+     *
+     * @param block This block receives the current data at this location and must return an instance of FIRTransactionResult
+     * @param completionBlock This block will be triggered once the transaction is complete, whether it was successful or not. It will indicate if there was an error, whether or not the data was committed, and what the current value of the data at this location is.
+     */
+    public func runTransactionBlock(_ block: @escaping (MutableData) -> TransactionResult) -> Observable<DatabaseReferenceTransactionResult> {
+        return self.runTransactionBlock(block, withLocalEvents: true)
     }
 }

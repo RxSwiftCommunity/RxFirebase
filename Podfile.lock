@@ -85,7 +85,7 @@ DEPENDENCIES:
   - RxFirebase/RemoteConfig (from `./`)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - BoringSSL
     - FirebaseABTesting
     - FirebaseAnalytics
@@ -132,4 +132,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: fde8e8f30c4a2721a77fa8212056b41e090fe118
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.2
