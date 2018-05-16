@@ -3,6 +3,7 @@
 //  RxFirebase
 //
 //  Created by Arnaud Dorgans on 03/05/2018.
+//  Copyright © 2018 RxSwiftCommunity. All rights reserved.
 //
 
 import UIKit
