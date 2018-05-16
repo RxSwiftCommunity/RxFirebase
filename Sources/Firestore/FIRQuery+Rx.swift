@@ -49,7 +49,7 @@ extension Reactive where Base: Query {
      *
      * @param options Options controlling the listener behavior.
      */
-    public func listen(options: QueryListenOptions? = nil) -> Observable<QuerySnapshot> {
+    public func listen(options: FirebaseFirestore.QueryListenOptions? = nil) -> Observable<QuerySnapshot> {
         return Observable<QuerySnapshot>.create { observer in
             let listener = self.base.addSnapshotListener(options: options) { snapshot, error in
                 if let error = error {

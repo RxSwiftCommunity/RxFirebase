@@ -48,7 +48,7 @@ extension Reactive where Base: DocumentReference {
      *     server. This block will not be called while the client is offline, though local
      *     changes will be visible immediately.
      */
-    public func setData(_ documentData: [String: Any], options: SetOptions) -> Observable<Void> {
+    public func setData(_ documentData: [String: Any], options: FirebaseFirestore.SetOptions) -> Observable<Void> {
         return Observable<Void>.create { observer in
             self.base.setData(documentData, options: options) { error in
                 guard let error = error else {
@@ -135,7 +135,7 @@ extension Reactive where Base: DocumentReference {
      *
      * @param options Options controlling the listener behavior.
      */
-    public func listen(options: DocumentListenOptions? = nil) -> Observable<DocumentSnapshot> {
+    public func listen(options: FirebaseFirestore.DocumentListenOptions? = nil) -> Observable<DocumentSnapshot> {
         return Observable<DocumentSnapshot>.create { observer in
             let listener = self.base.addSnapshotListener(options: options) { snapshot, error in
                 if let error = error {

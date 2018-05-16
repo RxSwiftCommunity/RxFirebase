@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RxFirebase
 
 class ViewController: UIViewController {
 

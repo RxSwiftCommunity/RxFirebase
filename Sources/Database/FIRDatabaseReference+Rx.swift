@@ -6,7 +6,6 @@
 //  Copyright © 2018 RxSwiftCommunity. All rights reserved.
 //
 
-import UIKit
 import RxSwift
 import FirebaseDatabase
 
