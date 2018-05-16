@@ -5,35 +5,19 @@ PODS:
   - BoringSSL/Implementation (10.0.2):
     - BoringSSL/Interface (= 10.0.2)
   - BoringSSL/Interface (10.0.2)
-  - FirebaseABTesting (1.0.0):
-    - FirebaseCore (~> 4.0)
-    - Protobuf (~> 3.1)
-  - FirebaseAnalytics (4.2.0):
-    - FirebaseCore (~> 4.0)
-    - FirebaseInstanceID (~> 2.0)
+  - FirebaseCore (5.0.1):
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-    - nanopb (~> 0.3)
-  - FirebaseCore (4.0.20):
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-  - FirebaseDatabase (4.1.5):
-    - FirebaseAnalytics (~> 4.1)
-    - FirebaseCore (~> 4.0)
-    - leveldb-library (~> 1.18)
-  - FirebaseFirestore (0.11.0):
-    - FirebaseAnalytics (~> 4.1)
-    - FirebaseCore (~> 4.0)
+  - FirebaseFirestore (0.12.1):
+    - FirebaseCore (~> 5.0)
+    - FirebaseFirestore/abseil-cpp (= 0.12.1)
     - gRPC-ProtoRPC (~> 1.0)
     - leveldb-library (~> 1.18)
-    - Protobuf (~> 3.5)
-  - FirebaseInstanceID (2.0.10):
-    - FirebaseCore (~> 4.0)
-  - FirebaseRemoteConfig (2.1.3):
-    - FirebaseABTesting (~> 1.0)
-    - FirebaseAnalytics (~> 4.1)
-    - FirebaseCore (~> 4.0)
-    - FirebaseInstanceID (~> 2.0)
-    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
-    - Protobuf (~> 3.5)
+    - Protobuf (~> 3.1)
+  - FirebaseFirestore/abseil-cpp (0.12.1):
+    - FirebaseCore (~> 5.0)
+    - gRPC-ProtoRPC (~> 1.0)
+    - leveldb-library (~> 1.18)
+    - Protobuf (~> 3.1)
   - GoogleToolboxForMac/Defines (2.1.4)
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
@@ -65,35 +49,20 @@ PODS:
   - Protobuf (3.5.0)
   - RxCocoa (4.1.2):
     - RxSwift (~> 4.0)
-  - RxFirebase/Database (0.2):
-    - FirebaseDatabase (~> 4)
-    - RxCocoa (~> 4)
-    - RxSwift (~> 4)
   - RxFirebase/Firestore (0.2):
     - FirebaseFirestore (~> 0)
-    - RxCocoa (~> 4)
-    - RxSwift (~> 4)
-  - RxFirebase/RemoteConfig (0.2):
-    - FirebaseRemoteConfig (~> 2)
     - RxCocoa (~> 4)
     - RxSwift (~> 4)
   - RxSwift (4.1.2)
 
 DEPENDENCIES:
-  - RxFirebase/Database (from `./`)
   - RxFirebase/Firestore (from `./`)
-  - RxFirebase/RemoteConfig (from `./`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - BoringSSL
-    - FirebaseABTesting
-    - FirebaseAnalytics
     - FirebaseCore
-    - FirebaseDatabase
     - FirebaseFirestore
-    - FirebaseInstanceID
-    - FirebaseRemoteConfig
     - GoogleToolboxForMac
     - gRPC
     - gRPC-Core
@@ -111,13 +80,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   BoringSSL: 60dd24df4af296bf41d78e5841dbb95d75f88c0d
-  FirebaseABTesting: d07d0ee833b842d5153549e4c7e2e2cb1c23a3f9
-  FirebaseAnalytics: 7ef69e76a5142f643aeb47c780e1cdce4e23632e
-  FirebaseCore: 90cb1c53d69b556f112a1bf72b5fcfaad7650790
-  FirebaseDatabase: 5f0bc6134c5c237cf55f9e1249d406770a75eafd
-  FirebaseFirestore: e92a096ce80c7b4b905d4e9d41dbd944adc9d2a5
-  FirebaseInstanceID: 8d20d890d65c917f9f7d9950b6e10a760ad34321
-  FirebaseRemoteConfig: 3e95fb7c072308492e85fa41d59d38b3d6fd2372
+  FirebaseCore: cafc814b2d84fc8733f09e653041cc2165332ad7
+  FirebaseFirestore: f686b8e83f3cf8bbc37db6e98e01029a14f01f55
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   gRPC: 70703dc9ba31c72341fc7f37745cc1c379edee96
   gRPC-Core: 164639cd8ae18ca8b65477fafb2efbaecf4f181a
@@ -130,6 +94,6 @@ SPEC CHECKSUMS:
   RxFirebase: eade50b4bbf77e183cc44d1a632ba1485766b35b
   RxSwift: e49536837d9901277638493ea537394d4b55f570
 
-PODFILE CHECKSUM: fde8e8f30c4a2721a77fa8212056b41e090fe118
+PODFILE CHECKSUM: b28685acf93ca9d67d198acc1706a3acfaaf2d1b
 
 COCOAPODS: 1.5.2

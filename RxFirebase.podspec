@@ -38,7 +38,7 @@ Pod::Spec.new do |s|
     
     s.subspec 'Firestore' do |firestore|
         firestore.source_files = 'Sources/Firestore/**/*'
-        firestore.dependency 'FirebaseFirestore', '~> 0'
+        firestore.dependency 'FirebaseFirestore', '~> 0.12'
     end
     s.subspec 'RemoteConfig' do |remote|
         remote.source_files = 'Sources/RemoteConfig/**/*'
