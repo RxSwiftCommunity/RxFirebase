@@ -255,14 +255,8 @@ Transactions:
 let db = Firestore.firestore()
 let sfReference = db.collection("cities").document("SF")
 
-db.rx.runTransaction { transaction, errorPointer in
-    let sfDocument: DocumentSnapshot
-    do {
-        try sfDocument = transaction.getDocument(sfReference)
-    } catch let fetchError as NSError {
-        errorPointer?.pointee = fetchError
-        return nil
-    }
+db.rx.runTransaction { transaction in
+    let sfDocument = try transaction.getDocument(sfReference)
     
     guard let oldPopulation = sfDocument.data()?["population"] as? Int else {
         let error = NSError(
@@ -272,8 +266,7 @@ db.rx.runTransaction { transaction, errorPointer in
                 NSLocalizedDescriptionKey: "Unable to retrieve population from snapshot \(sfDocument)"
             ]
         )
-        errorPointer?.pointee = error
-        return nil
+        throw error
     }
     
     transaction.updateData(["population": oldPopulation + 1], forDocument: sfReference)
