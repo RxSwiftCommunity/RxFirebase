@@ -38,6 +38,9 @@ PODS:
     - FirebaseInstanceID (~> 3.0)
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
     - Protobuf (~> 3.5)
+  - FirebaseStorage (3.0.0):
+    - FirebaseCore (~> 5.0)
+    - GTMSessionFetcher/Core (~> 1.1)
   - GoogleToolboxForMac/Defines (2.1.4)
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
@@ -60,6 +63,7 @@ PODS:
   - gRPC/Main (1.11.0):
     - gRPC-Core (= 1.11.0)
     - gRPC-RxLibrary (= 1.11.0)
+  - GTMSessionFetcher/Core (1.1.15)
   - leveldb-library (1.20)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -69,16 +73,20 @@ PODS:
   - Protobuf (3.5.0)
   - RxCocoa (4.1.2):
     - RxSwift (~> 4.0)
-  - RxFirebase/Database (0.2):
+  - RxFirebase/Database (0.2.1):
     - FirebaseDatabase (~> 5)
     - RxCocoa (~> 4)
     - RxSwift (~> 4)
-  - RxFirebase/Firestore (0.2):
+  - RxFirebase/Firestore (0.2.1):
     - FirebaseFirestore (~> 0.12)
     - RxCocoa (~> 4)
     - RxSwift (~> 4)
-  - RxFirebase/RemoteConfig (0.2):
+  - RxFirebase/RemoteConfig (0.2.1):
     - FirebaseRemoteConfig (~> 3)
+    - RxCocoa (~> 4)
+    - RxSwift (~> 4)
+  - RxFirebase/Storage (0.2.1):
+    - FirebaseStorage (~> 3)
     - RxCocoa (~> 4)
     - RxSwift (~> 4)
   - RxSwift (4.1.2)
@@ -87,6 +95,7 @@ DEPENDENCIES:
   - RxFirebase/Database (from `./`)
   - RxFirebase/Firestore (from `./`)
   - RxFirebase/RemoteConfig (from `./`)
+  - RxFirebase/Storage (from `./`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -98,11 +107,13 @@ SPEC REPOS:
     - FirebaseFirestore
     - FirebaseInstanceID
     - FirebaseRemoteConfig
+    - FirebaseStorage
     - GoogleToolboxForMac
     - gRPC
     - gRPC-Core
     - gRPC-ProtoRPC
     - gRPC-RxLibrary
+    - GTMSessionFetcher
     - leveldb-library
     - nanopb
     - Protobuf
@@ -122,18 +133,20 @@ SPEC CHECKSUMS:
   FirebaseFirestore: f686b8e83f3cf8bbc37db6e98e01029a14f01f55
   FirebaseInstanceID: 83e0040351565df711a5db3d8ebe5ea21aca998a
   FirebaseRemoteConfig: 3c57e4644bd6976b671ae0b725cd709f198bd1f5
+  FirebaseStorage: 7ca4bb7b58a25fa647b04f524033fc7cb7eb272b
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   gRPC: 70703dc9ba31c72341fc7f37745cc1c379edee96
   gRPC-Core: 164639cd8ae18ca8b65477fafb2efbaecf4f181a
   gRPC-ProtoRPC: bb5fddf3424aa4fad74d76736578a79fe40e244e
   gRPC-RxLibrary: 26d53d1b1f306befd4ad4e15bd6de27839a82481
+  GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   RxCocoa: d88ba0f1f6abf040011a9eb4b539324fc426843a
-  RxFirebase: 564de37ff7429fb88313635d8a4b16c656bd9bbd
+  RxFirebase: 25a2fd31fe5795d90338fba7beb9b415209a215e
   RxSwift: e49536837d9901277638493ea537394d4b55f570
 
-PODFILE CHECKSUM: fde8e8f30c4a2721a77fa8212056b41e090fe118
+PODFILE CHECKSUM: 973a2757330c974ebe33f0c1e979ded68c8ec05a
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3

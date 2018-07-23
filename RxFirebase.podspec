@@ -48,4 +48,8 @@ Pod::Spec.new do |s|
         database.source_files = 'Sources/Database/**/*'
         database.dependency 'FirebaseDatabase', '~> 5'
     end
+    s.subspec 'Storage' do |storage|
+        storage.source_files = 'Sources/Storage/**/*'
+        storage.dependency 'FirebaseStorage', '~> 3'
+    end
 end

@@ -20,6 +20,7 @@ it, simply add the following line to your Podfile:
 pod 'RxFirebase/Firestore'
 pod 'RxFirebase/RemoteConfig'
 pod 'RxFirebase/Database'
+pod 'RxFirebase/Storage'
 ```
 
 ## Usage
@@ -31,6 +32,7 @@ import RxFirebase
 - [Database](#database)
 - [Firestore](#firestore)
 - [RemoteConfig](#remoteconfig)
+- [Storage](#storage)
 
 ### Database
 
@@ -298,6 +300,138 @@ RemoteConfig.remoteConfig()
     }).disposed(by: disposeBag)
 
     // https://firebase.google.com/docs/remote-config/ios
+```
+
+### Storage
+
+Upload:
+```swift
+
+let reference = Storage.storage()
+    .reference(forURL: "\(your_firebase_storage_bucket)/images/space.jpg")
+    .rx
+    
+let data: Data // Upload data
+reference.putData(data)
+    .subscribe(onNext: { metadata in
+        // Success
+    }, onError: { error in
+        // Uh-oh, an error occurred!
+    }).disposed(by: disposeBag)
+    
+
+let fileURL: URL // Upload file
+reference.putFile(from: fileURL)
+    .subscribe(onNext: { metadata in
+        // Success
+    }, onError: { error in
+        // Uh-oh, an error occurred!
+    }).disposed(by: disposeBag)
+```
+
+Observe events:
+```swift
+let reference = Storage.storage()
+    .reference(forURL: "\(your_firebase_storage_bucket)/images/space.jpg")
+    .rx
+
+let fileURL: URL // Upload file
+let uploadTask = reference.putFile(from: fileURL)
+
+// Listen for state changes
+task.rx.observe(.progress)
+    .subscribe(onNext: { snapshot in
+        // Upload reported progress
+        let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
+        / Double(snapshot.progress!.totalUnitCount)
+    }, onError: { error in
+        // Uh-oh, an error occurred!
+    }).disposed(by: disposeBag)
+```
+
+Download:
+```swift
+let reference = Storage.storage()
+    .reference(forURL: "\(your_firebase_storage_bucket)/images/space.jpg")
+    .rx
+
+// Download in memory with a maximum allowed size of 1MB (1 * 1024 * 1024 bytes)
+reference.getData(maxSize: 1 * 1024 * 1024)
+    .subscribe(onNext: { data in
+        // Data for "images/space.jpg" is returned
+    }, onError: { error in
+        // Uh-oh, an error occurred!
+    }).disposed(by: disposeBag)
+    
+    
+    
+// Create local filesystem URL
+let localURL = URL(string: "path/to/image")!
+    
+// Download to the local filesystem
+reference.write(toFile: localURL)
+    .subscribe(onNext: { data in
+        // Local file URL for "images/space.jpg" is returned
+    }, onError: { error in
+        // Uh-oh, an error occurred!
+    }).disposed(by: disposeBag)
+```
+
+URL:
+```swift
+let reference = Storage.storage()
+    .reference(forURL: "\(your_firebase_storage_bucket)/images/space.jpg")
+    .rx
+    
+// Fetch the download URL
+reference.downloadURL()
+    .subscribe(onNext: { url in
+        // Get the download URL for 'images/space.jpg'
+    }, onError: { error in
+        // Handle any errors
+    }).disposed(by: disposeBag)
+```
+
+Metadata:
+```swift
+let reference = Storage.storage()
+    .reference(forURL: "\(your_firebase_storage_bucket)/images/space.jpg")
+    .rx
+    
+// Create file metadata to update
+let newMetadata = StorageMetadata()
+    
+// Update metadata properties
+reference.updateMetadata(newMetadata)
+    .subscribe(onNext: { metadata in
+        // Updated metadata for 'images/space.jpg' is returned
+    }, onError: { error in
+        // Uh-oh, an error occurred!
+    }).disposed(by: disposeBag)
+    
+    
+// Get metadata properties
+reference.getMetadata()
+    .subscribe(onNext: { metadata in
+        // Metadata now contains the metadata for 'images/space.jpg'
+    }, onError: { error in
+        // Uh-oh, an error occurred!
+    }).disposed(by: disposeBag)
+```
+
+Delete:
+```swift
+let reference = Storage.storage()
+    .reference(forURL: "\(your_firebase_storage_bucket)/images/space.jpg")
+    .rx
+    
+// Delete the file
+reference.delete()
+    .subscribe(onNext: {
+        // File deleted successfully
+    }, onError: { error in
+        // Uh-oh, an error occurred!
+    }).disposed(by: disposeBag)
 ```
 
 ## License
