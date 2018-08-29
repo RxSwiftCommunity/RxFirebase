@@ -3,7 +3,6 @@
 [![CI Status](http://img.shields.io/travis/RxSwiftCommunity/RxFirebase.svg?style=flat)](https://travis-ci.org/RxSwiftCommunity/RxFirebase)
 [![Version](https://img.shields.io/cocoapods/v/RxFirebase.svg?style=flat)](http://cocoapods.org/pods/RxFirebase)
 [![License](https://img.shields.io/cocoapods/l/RxFirebase.svg?style=flat)](http://cocoapods.org/pods/RxFirebase)
-[![CocoaPods](https://img.shields.io/cocoapods/dt/RxFirebase.svg?style=flat)](https://cocoapods.org/pods/RxFirebase)
 [![Platform](https://img.shields.io/cocoapods/p/RxFirebase.svg?style=flat)](http://cocoapods.org/pods/RxFirebase)
 
 ## Requirements
