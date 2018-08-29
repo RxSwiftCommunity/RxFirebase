@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'RxFirebase'
-    s.version          = '0.2.2'
+    s.version          = '0.2.3'
     s.summary          = 'RxSwift extensions for Firebase.'
     
     # This description is used to generate tags and improve search results.
@@ -51,5 +51,10 @@ Pod::Spec.new do |s|
     s.subspec 'Storage' do |storage|
         storage.source_files = 'Sources/Storage/**/*'
         storage.dependency 'FirebaseStorage', '~> 3'
+    end
+    s.subspec 'Auth' do |auth|
+        auth.source_files = 'Sources/Auth/**/*'
+        auth.dependency 'FirebaseAuth', '~> 5'
+        auth.dependency 'FirebaseCore', '~> 5.1'
     end
 end

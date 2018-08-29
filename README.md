@@ -21,6 +21,7 @@ pod 'RxFirebase/Firestore'
 pod 'RxFirebase/RemoteConfig'
 pod 'RxFirebase/Database'
 pod 'RxFirebase/Storage'
+pod 'RxFirebase/Auth'
 ```
 
 ## Usage
@@ -33,6 +34,7 @@ import RxFirebase
 - [Firestore](#firestore)
 - [RemoteConfig](#remoteconfig)
 - [Storage](#storage)
+- [Auth](#auth)
 
 ### Database
 
@@ -433,6 +435,8 @@ reference.delete()
         // Uh-oh, an error occurred!
     }).disposed(by: disposeBag)
 ```
+
+### Auth
 
 ## License
 
