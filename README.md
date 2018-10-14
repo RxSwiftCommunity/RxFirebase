@@ -45,7 +45,7 @@ let ref = Database.database().reference()
 ref.child("users")
     .child("1")
     .rx
-    .setValue(["username": "Arnonymous"])
+    .setValue(["username": "Anonymous"])
     .subscribe(onNext: { _ in
         print("Document successfully updated")
     }).disposed(by: disposeBag)
@@ -341,7 +341,7 @@ let fileURL: URL // Upload file
 let uploadTask = reference.putFile(from: fileURL)
 
 // Listen for state changes
-task.rx.observe(.progress)
+uploadTask.rx.observe(.progress)
     .subscribe(onNext: { snapshot in
         // Upload reported progress
         let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
