@@ -341,7 +341,7 @@ let fileURL: URL // Upload file
 let uploadTask = reference.putFile(from: fileURL)
 
 // Listen for state changes
-uploadTask.rx.observe(.progress)
+task.rx.observe(.progress)
     .subscribe(onNext: { snapshot in
         // Upload reported progress
         let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
@@ -437,6 +437,72 @@ reference.delete()
 ```
 
 ### Auth
+
+Create:
+
+ ```swift
+ let auth = Auth.auth()
+     
+ // Create a password-based account
+ auth.rx.createUser(withEmail: "xxx@xxx.com", password: "1q2w3e4r")
+     .subscribe(onNext: { authResult in
+         // User signed in
+     }, onError: { error in
+         // Uh-oh, an error occurred!
+     }).disposed(by: disposeBag)
+
+ // https://firebase.google.com/docs/auth/ios/password-auth
+ ```
+
+ Sign In:
+
+ ```swift
+ let auth = Auth.auth()
+     
+ // Sign in a user with an email address and password
+ auth.rx.signIn(withEmail: "xxx@xxx.com", password: "1q2w3e4r")
+     .subscribe(onNext: { authResult in
+         // User signed in
+     }, onError: { error in
+         // Uh-oh, an error occurred!
+     }).disposed(by: disposeBag)
+
+ // https://firebase.google.com/docs/auth/ios/password-auth
+ ```
+
+ Update Email:
+
+ ```swift
+ let auth = Auth.auth()
+     
+ // Set a user's email address
+ auth.rx.updateEmail(to: "xxx@xxx.com")
+     .subscribe(onNext: {
+         // Completed updating Email
+     }, onError: { error in
+         // Uh-oh, an error occurred!
+     }).disposed(by: disposeBag)
+
+ // https://firebase.google.com/docs/auth/ios/manage-users
+ ```
+
+ Delete:
+
+ ```swift
+ let auth = Auth.auth()
+     
+ // Delete a user
+ auth.rx.delete()
+     .subscribe(onNext: {
+         // User deleted
+     }, onError: { error in
+         // Uh-oh, an error occurred!
+     }).disposed(by: disposeBag)
+
+ // https://firebase.google.com/docs/auth/ios/manage-users
+ ```
+
+
 
 ## License
 
