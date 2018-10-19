@@ -7,6 +7,7 @@ target 'RxFirebase_Example' do
   pod 'RxFirebase/Database', :path => './'
   pod 'RxFirebase/Storage', :path => './'
   pod 'RxFirebase/Auth', :path => './'
+  pod 'RxFirebase/Functions', :path => './'
 
   target 'RxFirebase_Tests' do
     inherit! :search_paths
