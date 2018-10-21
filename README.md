@@ -470,10 +470,12 @@ Create:
  // https://firebase.google.com/docs/auth/ios/password-auth
  ```
 
+### User
+
  Update Email:
 
  ```swift
- let auth = Auth.auth()
+ let user = Auth.auth().currentUser?
      
  // Set a user's email address
  auth.rx.updateEmail(to: "xxx@xxx.com")
@@ -489,8 +491,8 @@ Create:
  Delete:
 
  ```swift
- let auth = Auth.auth()
-     
+let user = Auth.auth().currentUser?
+
  // Delete a user
  auth.rx.delete()
      .subscribe(onNext: {
