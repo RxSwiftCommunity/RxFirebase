@@ -478,7 +478,7 @@ Create:
  let user = Auth.auth().currentUser?
      
  // Set a user's email address
- auth.rx.updateEmail(to: "xxx@xxx.com")
+ user.rx.updateEmail(to: "xxx@xxx.com")
      .subscribe(onNext: {
          // Completed updating Email
      }, onError: { error in
@@ -494,7 +494,7 @@ Create:
 let user = Auth.auth().currentUser?
 
  // Delete a user
- auth.rx.delete()
+ user.rx.delete()
      .subscribe(onNext: {
          // User deleted
      }, onError: { error in
