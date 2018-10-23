@@ -52,6 +52,10 @@ Pod::Spec.new do |s|
         storage.source_files = 'Sources/Storage/**/*'
         storage.dependency 'FirebaseStorage', '~> 3'
     end
+    s.subspec 'Functions' do |functions|
+        functions.source_files = 'Sources/Functions/**/*'
+        functions.dependency 'FirebaseFunctions', '~> 2'
+    end
     s.subspec 'Auth' do |auth|
         auth.source_files = 'Sources/Auth/**/*'
         auth.dependency 'FirebaseAuth', '~> 5'

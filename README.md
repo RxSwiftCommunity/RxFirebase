@@ -22,6 +22,7 @@ pod 'RxFirebase/RemoteConfig'
 pod 'RxFirebase/Database'
 pod 'RxFirebase/Storage'
 pod 'RxFirebase/Auth'
+pod 'RxFirebase/Functions'
 ```
 
 ## Usage
@@ -35,6 +36,7 @@ import RxFirebase
 - [RemoteConfig](#remoteconfig)
 - [Storage](#storage)
 - [Auth](#auth)
+- [Functions](#functions)
 
 ### Database
 
@@ -341,7 +343,7 @@ let fileURL: URL // Upload file
 let uploadTask = reference.putFile(from: fileURL)
 
 // Listen for state changes
-task.rx.observe(.progress)
+uploadTask.rx.observe(.progress)
     .subscribe(onNext: { snapshot in
         // Upload reported progress
         let percentComplete = 100.0 * Double(snapshot.progress!.completedUnitCount)
@@ -504,7 +506,22 @@ let user = Auth.auth().currentUser?
  // https://firebase.google.com/docs/auth/ios/manage-users
  ```
 
+### Functions
 
+```swift
+let functions = Functions.functions()
+let request = functions.httpsCallable("functionName").rx
+
+request
+    .call(["parameter": "value"])
+    .subscribe(onNext: { result in
+        print("response:\(result)")
+    }, onError: { error in
+        print("error:\(error)")
+    }).disposed(by: disposeBag)
+    
+    // https://firebase.google.com/docs/functions/callable#call_the_function
+```
 
 ## License
 

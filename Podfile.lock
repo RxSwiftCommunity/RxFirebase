@@ -43,6 +43,9 @@ PODS:
     - leveldb-library (~> 1.18)
     - nanopb (~> 0.3.8)
     - Protobuf (~> 3.1)
+  - FirebaseFunctions (2.1.1):
+    - FirebaseCore (~> 5.0)
+    - GTMSessionFetcher/Core (~> 1.1)
   - FirebaseInstanceID (3.2.1):
     - FirebaseCore (~> 5.1)
     - GoogleUtilities/Environment (~> 5.2)
@@ -110,24 +113,28 @@ PODS:
   - Protobuf (3.6.1)
   - RxCocoa (4.2.0):
     - RxSwift (~> 4.0)
-  - RxFirebase/Auth (0.2.2):
+  - RxFirebase/Auth (0.2.4):
     - FirebaseAuth (~> 5)
     - FirebaseCore (~> 5.1)
     - RxCocoa (~> 4)
     - RxSwift (~> 4)
-  - RxFirebase/Database (0.2.2):
+  - RxFirebase/Database (0.2.4):
     - FirebaseDatabase (~> 5)
     - RxCocoa (~> 4)
     - RxSwift (~> 4)
-  - RxFirebase/Firestore (0.2.2):
+  - RxFirebase/Firestore (0.2.4):
     - FirebaseFirestore (~> 0.12)
     - RxCocoa (~> 4)
     - RxSwift (~> 4)
-  - RxFirebase/RemoteConfig (0.2.2):
+  - RxFirebase/Functions (0.2.4):
+    - FirebaseFunctions (~> 2)
+    - RxCocoa (~> 4)
+    - RxSwift (~> 4)
+  - RxFirebase/RemoteConfig (0.2.4):
     - FirebaseRemoteConfig (~> 3)
     - RxCocoa (~> 4)
     - RxSwift (~> 4)
-  - RxFirebase/Storage (0.2.2):
+  - RxFirebase/Storage (0.2.4):
     - FirebaseStorage (~> 3)
     - RxCocoa (~> 4)
     - RxSwift (~> 4)
@@ -137,6 +144,7 @@ DEPENDENCIES:
   - RxFirebase/Auth (from `./`)
   - RxFirebase/Database (from `./`)
   - RxFirebase/Firestore (from `./`)
+  - RxFirebase/Functions (from `./`)
   - RxFirebase/RemoteConfig (from `./`)
   - RxFirebase/Storage (from `./`)
 
@@ -150,6 +158,7 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseDatabase
     - FirebaseFirestore
+    - FirebaseFunctions
     - FirebaseInstanceID
     - FirebaseRemoteConfig
     - FirebaseStorage
@@ -179,6 +188,7 @@ SPEC CHECKSUMS:
   FirebaseCore: 3a97432acb324b439fbed338e642f9cbb516a63d
   FirebaseDatabase: 27be5ac5bc75e0b17537b2bbfada8258addcc8cd
   FirebaseFirestore: 7eec93809ad61e7ebe303089c5cc5efa63424b72
+  FirebaseFunctions: 6c03d7c5d62520be4678dc3fb7957654aab82b4f
   FirebaseInstanceID: ea5af6920d0a4a29b40459d055bebe4a6c1333c4
   FirebaseRemoteConfig: 7b6d675dfb11f0e0e638caee00908b06af150d56
   FirebaseStorage: 43f823b96b72a08539eba21a7de043348a69d4c6
@@ -193,9 +203,9 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   RxCocoa: 0b54909c902e1e581212a03e690bbd94032d8baa
-  RxFirebase: 8fa5c30d4ad3645f3be7cc0e780a0dc6083430ad
+  RxFirebase: 223375f163b3e5ed7db665e3fc596851840131be
   RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
 
-PODFILE CHECKSUM: 65fe2926d5235467f5da97e2c5e400ae4db298cf
+PODFILE CHECKSUM: db4e0a593103ec732f32da4bf8e8163883660ceb
 
 COCOAPODS: 1.5.3
