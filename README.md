@@ -472,7 +472,7 @@ Create:
  // https://firebase.google.com/docs/auth/ios/password-auth
  ```
 
-### User
+#### User
 
  Update Email:
 
