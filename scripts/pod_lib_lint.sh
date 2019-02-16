@@ -1,10 +1,10 @@
 #!/bin/bash
-for pod in $(find . -name "*.podspec" -type f);do
+for pod in $(find . -name "*.podspec" -type f -exec basename {} ';' );do
 	push=0
 	if [[ $1 == 'push' ]]; then
                 push=1
         fi
- 	if [[ $pod == './RxFirebase.podspec' ]]; then
+ 	if [[ $pod == 'RxFirebase.podspec' ]]; then
 			continue
         fi
 	if [[ $push == 0 ]]; then
