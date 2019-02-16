@@ -15,7 +15,7 @@
 		89687B4350920944772DFBF5 /* Pods_RxFirebase_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C580F5CD4C129AE9AE8D4CB4 /* Pods_RxFirebase_Example.framework */; };
 		97510B32221891EE00722D52 /* RxFirebaseStorage.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 97510B31221891EE00722D52 /* RxFirebaseStorage.podspec */; };
 		97510B342218928800722D52 /* RxFirebaseFunctions.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 97510B332218928800722D52 /* RxFirebaseFunctions.podspec */; };
-		97510B36221893C000722D52 /* RxSwiftFirebaseAuth.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 97510B35221893C000722D52 /* RxSwiftFirebaseAuth.podspec */; };
+		97510B382218A83F00722D52 /* RxFirebaseAuthentication.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 97510B372218A83F00722D52 /* RxFirebaseAuthentication.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +37,7 @@
 		974E84332218299C00F76D10 /* RxFirebaseDatabase.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = RxFirebaseDatabase.podspec; sourceTree = "<group>"; };
 		97510B31221891EE00722D52 /* RxFirebaseStorage.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RxFirebaseStorage.podspec; sourceTree = "<group>"; };
 		97510B332218928800722D52 /* RxFirebaseFunctions.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RxFirebaseFunctions.podspec; sourceTree = "<group>"; };
-		97510B35221893C000722D52 /* RxSwiftFirebaseAuth.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RxSwiftFirebaseAuth.podspec; sourceTree = "<group>"; };
+		97510B372218A83F00722D52 /* RxFirebaseAuthentication.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RxFirebaseAuthentication.podspec; sourceTree = "<group>"; };
 		A5ECD0739495588E75E2ACBB /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B2E93982D2C0A28AF5F580D4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		C580F5CD4C129AE9AE8D4CB4 /* Pods_RxFirebase_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RxFirebase_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,7 +105,7 @@
 				974E84332218299C00F76D10 /* RxFirebaseDatabase.podspec */,
 				97510B31221891EE00722D52 /* RxFirebaseStorage.podspec */,
 				97510B332218928800722D52 /* RxFirebaseFunctions.podspec */,
-				97510B35221893C000722D52 /* RxSwiftFirebaseAuth.podspec */,
+				97510B372218A83F00722D52 /* RxFirebaseAuthentication.podspec */,
 				A5ECD0739495588E75E2ACBB /* README.md */,
 				B2E93982D2C0A28AF5F580D4 /* LICENSE */,
 			);
@@ -196,8 +196,8 @@
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				97510B342218928800722D52 /* RxFirebaseFunctions.podspec in Resources */,
 				97510B32221891EE00722D52 /* RxFirebaseStorage.podspec in Resources */,
-				97510B36221893C000722D52 /* RxSwiftFirebaseAuth.podspec in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				97510B382218A83F00722D52 /* RxFirebaseAuthentication.podspec in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

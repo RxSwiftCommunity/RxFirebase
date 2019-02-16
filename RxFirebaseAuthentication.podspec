@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
-    s.name             = 'RxSwiftFirebaseAuth'
-    s.version          = '0.3'
+    s.name             = 'RxFirebaseAuthentication'
+    s.version          = '0.3.1'
     s.summary          = 'RxSwift extensions for FirebaseAuth.'
     
     # This description is used to generate tags and improve search results.

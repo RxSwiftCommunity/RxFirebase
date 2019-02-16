@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'RxFirebase'
-    s.version          = '0.3'
+    s.version          = '0.3.1'
     s.summary          = 'RxSwift extensions for Firebase.'
     
     # This description is used to generate tags and improve search results.
@@ -30,21 +30,21 @@ Pod::Spec.new do |s|
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
     
     s.subspec 'Firestore' do |firestore|
-        firestore.dependency 'RxFirebaseFirestore', '~> 1'
+        firestore.dependency 'RxFirebaseFirestore', '~> 0.3'
     end
     s.subspec 'RemoteConfig' do |remote|
-        remote.dependency 'RxFirebaseRemoteConfig', '~> 3'
+        remote.dependency 'RxFirebaseRemoteConfig', '~> 0.3'
     end
     s.subspec 'Database' do |database|
-        database.dependency 'RxFirebaseDatabase', '~> 5'
+        database.dependency 'RxFirebaseDatabase', '~> 0.3'
     end
     s.subspec 'Storage' do |storage|
-        storage.dependency 'RxFirebaseStorage', '~> 3'
+        storage.dependency 'RxFirebaseStorage', '~> 0.3'
     end
     s.subspec 'Functions' do |functions|
-        functions.dependency 'RxFirebaseFunctions', '~> 2'
+        functions.dependency 'RxFirebaseFunctions', '~> 0.3'
     end
     s.subspec 'Auth' do |auth|
-        auth.dependency 'RxSwiftFirebaseAuth', '~> 5'
+        auth.dependency 'RxFirebaseAuthentication', '~> 0.3'
     end
 end
