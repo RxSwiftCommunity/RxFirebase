@@ -5,14 +5,12 @@ for pod in $(find . -name "*.podspec" -type f);do
                 push=1
         fi
  	if [[ $pod == './RxFirebase.podspec' ]]; then
-                if [[ $push == 0 ]]; then
 			continue
-		fi
         fi
 	if [[ $push == 0 ]]; then
-		command="pod lib lint $pod --allow-warnings"
+		command="pod lib lint $pod --allow-warnings --verbose"
 	else
-		command="pod trunk push $pod --allow-warnings"
+		command="pod trunk push $pod --allow-warnings  --verbose"
 	fi
 	echo $command
 	$command ; result=$?
