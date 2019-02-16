@@ -4,5 +4,4 @@ install:
  - sh scripts/pod_lib_lint.sh
 before_install:
  - gem install cocoapods
-script:
  - pod repo update && pod update
