@@ -2,7 +2,12 @@ language: swift
 osx_image: xcode10.1
 install:
 script:
- - travis_wait 50 sh .scripts/pod_lib.sh
+ # https://github.com/travis-ci/travis-ci/issues/4190
+ # Output something every 9 minutes (540 seconds) or Travis kills the job
+ - while sleep 540; do echo "=====[ $SECONDS seconds still running ]====="; done &
+ - sh .scripts/pod_lib.sh
+ # Kill the sleep loop
+ - kill %1
 before_install:
  - gem install cocoapods
  - pod repo update && pod update
