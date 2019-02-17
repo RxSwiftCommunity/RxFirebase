@@ -25,4 +25,3 @@ for pod in $(find . -name "*.podspec" -type f -exec basename {} ';' );do
 		exit $result
 	fi
 done
-pod_lint 'RxFirebase.podspec' $push
