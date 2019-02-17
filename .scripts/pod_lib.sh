@@ -1,21 +1,28 @@
 #!/bin/bash
-for pod in $(find . -name "*.podspec" -type f -exec basename {} ';' );do
-	push=0
-	if [[ $1 == 'push' ]]; then
-                push=1
+
+function pod_lint {
+	pod=$1
+	command="$pod --allow-warnings"
+	if [[ $2 == 0 ]]; then
+                command="pod lib lint $command"
+        else
+                command="pod trunk push $command"
         fi
+	echo $command
+        $command ; result=$?
+}
+
+push=0
+if [[ $1 == 'push' ]]; then
+	push=1
+fi
+for pod in $(find . -name "*.podspec" -type f -exec basename {} ';' );do
  	if [[ $pod == 'RxFirebase.podspec' ]]; then
 		continue
         fi
-	command="$pod --allow-warnings"
-	if [[ $push == 0 ]]; then
-		command="pod lib lint $command"
-	else
-		command="pod trunk push $command"
-	fi
-	echo $command
-	$command ; result=$?
+	pod_lint $pod $push
 	if [[ $result != 0 ]]; then
 		exit $result
 	fi
 done
+pod_lint 'RxFirebase.podspec' $push

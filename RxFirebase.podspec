@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
     s.author           = { 'Arnaud Dorgans' => 'arnaud.dorgans@gmail.com' }
     s.source           = { :git => 'https://github.com/RxSwiftCommunity/RxFirebase.git', :tag => s.version.to_s }
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-    
+    s.ios.deployment_target = '8.0'    
     s.subspec 'Firestore' do |firestore|
         firestore.dependency 'RxFirebaseFirestore', '~> 0.3'
     end
