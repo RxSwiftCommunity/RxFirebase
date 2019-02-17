@@ -2,7 +2,7 @@ language: swift
 osx_image: xcode10.1
 install:
 script:
- - sh scripts/pod_lib_lint.sh travis
+ - travis_wait 50 sh scripts/pod_lib_lint.sh
 before_install:
  - gem install cocoapods
  - pod repo update && pod update
