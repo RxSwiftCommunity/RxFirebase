@@ -5,7 +5,6 @@
 //  Created by Arnaud Dorgans on 19/07/2018.
 //
 
-import UIKit
 import RxSwift
 import FirebaseStorage
 

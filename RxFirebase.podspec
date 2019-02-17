@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'RxFirebase'
-    s.version          = '0.2.6'
+    s.version          = '0.3.2'
     s.summary          = 'RxSwift extensions for Firebase.'
     
     # This description is used to generate tags and improve search results.
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
     
     s.description      = <<-DESC
     RxSwift extensions for Firebase.
-    Including for now Database, Firestore, RemoteConfig, Storage, Functions
+    Including for now Database, Firestore, RemoteConfig, Storage, Functions, Auth
     DESC
     
     s.homepage         = 'https://github.com/RxSwiftCommunity/RxFirebase'
@@ -29,39 +29,22 @@ Pod::Spec.new do |s|
     s.source           = { :git => 'https://github.com/RxSwiftCommunity/RxFirebase.git', :tag => s.version.to_s }
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
     
-    s.cocoapods_version = '>= 1.4.0'
-    s.swift_version = '4.0'
-    s.ios.deployment_target = '8.0'
-    s.tvos.deployment_target = '10.0'
-    s.osx.deployment_target = '10.10'
-
-    s.static_framework = true
-    s.dependency 'RxSwift', '~> 4'
-    s.dependency 'RxCocoa', '~> 4'
-    
     s.subspec 'Firestore' do |firestore|
-        firestore.source_files = 'Sources/Firestore/**/*'
-        firestore.dependency 'FirebaseFirestore', '~> 0.15'
+        firestore.dependency 'RxFirebaseFirestore', '~> 0.3'
     end
     s.subspec 'RemoteConfig' do |remote|
-        remote.source_files = 'Sources/RemoteConfig/**/*'
-        remote.dependency 'FirebaseRemoteConfig', '~> 3'
+        remote.dependency 'RxFirebaseRemoteConfig', '~> 0.3'
     end
     s.subspec 'Database' do |database|
-        database.source_files = 'Sources/Database/**/*'
-        database.dependency 'FirebaseDatabase', '~> 5'
+        database.dependency 'RxFirebaseDatabase', '~> 0.3'
     end
     s.subspec 'Storage' do |storage|
-        storage.source_files = 'Sources/Storage/**/*'
-        storage.dependency 'FirebaseStorage', '~> 3'
+        storage.dependency 'RxFirebaseStorage', '~> 0.3'
     end
     s.subspec 'Functions' do |functions|
-        functions.source_files = 'Sources/Functions/**/*'
-        functions.dependency 'FirebaseFunctions', '~> 2'
+        functions.dependency 'RxFirebaseFunctions', '~> 0.3'
     end
     s.subspec 'Auth' do |auth|
-        auth.source_files = 'Sources/Auth/**/*'
-        auth.dependency 'FirebaseAuth', '~> 5'
-        auth.dependency 'FirebaseCore', '~> 5.1'
+        auth.dependency 'RxFirebaseAuthentication', '~> 0.3'
     end
 end
