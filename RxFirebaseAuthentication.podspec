@@ -31,5 +31,5 @@ Pod::Spec.new do |s|
     s.dependency 'FirebaseAuth', '~> 5'
     s.dependency 'FirebaseCore', '~> 5'
 
-    s.source_files = 'Sources/Auth/**/*'
+    s.source_files = 'Features/RxFirebaseAuthentication/RxFirebaseAuthentication/Sources/**/*'
 end

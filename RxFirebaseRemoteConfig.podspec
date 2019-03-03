@@ -28,5 +28,5 @@ Pod::Spec.new do |s|
     s.dependency 'RxCocoa', '~> 4'
     s.dependency 'FirebaseRemoteConfig', '~> 3'
 
-    s.source_files = 'Sources/RemoteConfig/**/*'
+    s.source_files = 'Features/RxFirebaseRemoteConfig/RxFirebaseRemoteConfig/Sources/**/*'
 end

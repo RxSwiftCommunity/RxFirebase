@@ -1,0 +1,7 @@
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseAuthBinary.json" "5.17.0"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseDatabaseBinary.json" "5.17.0"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseFirestoreBinary.json" "5.17.0"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseFunctionsBinary.json" "5.17.0"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseRemoteConfigBinary.json" "5.17.0"
+binary "https://dl.google.com/dl/firebase/ios/carthage/FirebaseStorageBinary.json" "5.17.0"
+github "ReactiveX/RxSwift" "4.4.1"
