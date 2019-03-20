@@ -4,6 +4,7 @@
 import RxSwift
 import FirebaseAuth
 
+#if os(iOS)
 extension Reactive where Base: PhoneAuthProvider {
   
   /**
@@ -37,3 +38,4 @@ extension Reactive where Base: PhoneAuthProvider {
     }
   }
 }
+#endif
