@@ -16,3 +16,9 @@ target 'RxFirebase_Example' do
   pod 'RxFirebaseFunctions', :path => './'
   pod 'RxFirebaseAuthentication', :path => './'
 end
+
+target 'RxFirebase_Example_tvOS' do
+  pod 'RxFirebaseStorage', :path => './'
+  pod 'RxFirebaseDatabase', :path => './'
+  pod 'RxFirebaseAuthentication', :path => './'
+end
