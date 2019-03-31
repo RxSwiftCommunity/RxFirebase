@@ -131,6 +131,30 @@ extension Reactive where Base: DocumentReference {
     }
     
     /**
+     * Reads the document referenced by this `FIRDocumentReference`.
+     *
+     * @param source indicates whether the results should be fetched from the cache
+     *     only (`Source.cache`), the server only (`Source.server`), or to attempt
+     *     the server and fall back to the cache (`Source.default`).
+     * @param completion a block to execute once the document has been successfully read.
+     */
+    public func getDocument(source: FirestoreSource) -> Observable<DocumentSnapshot> {
+        return Observable.create { observer in
+            self.base.getDocument(source: source) { snapshot, error in
+                if let error = error {
+                    observer.onError(error)
+                } else if let snapshot = snapshot, snapshot.exists {
+                    observer.onNext(snapshot)
+                    observer.onCompleted()
+                } else {
+                    observer.onError(NSError(domain: FirestoreErrorDomain, code: FirestoreErrorCode.notFound.rawValue, userInfo: nil))
+                }
+            }
+            return Disposables.create()
+        }
+    }
+    
+    /**
      * Attaches a listener for DocumentSnapshot events.
      *
      * @param includeMetadataChanges Whether metadata-only changes (i.e. only
