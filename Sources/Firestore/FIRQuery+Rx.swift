@@ -28,6 +28,23 @@ extension Reactive where Base: Query {
             return Disposables.create()
         }
     }
+  
+    /**
+     * Reads the documents matching this query.
+     */
+    public func getDocuments(source: FirestoreSource) -> Observable<QuerySnapshot> {
+        return Observable<QuerySnapshot>.create { observer in
+            self.base.getDocuments(source: source) { snapshot, error in
+                if let error = error {
+                    observer.onError(error)
+                } else if let snapshot = snapshot {
+                    observer.onNext(snapshot)
+                }
+                observer.onCompleted()
+            }
+            return Disposables.create()
+        }
+    }
     
     /**
      * Reads the first document matching this query.

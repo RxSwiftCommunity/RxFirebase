@@ -8,50 +8,51 @@ PODS:
   - FirebaseABTesting (2.0.0):
     - FirebaseCore (~> 5.0)
     - Protobuf (~> 3.5)
-  - FirebaseAnalytics (5.5.0):
-    - FirebaseCore (~> 5.2)
-    - FirebaseInstanceID (~> 3.4)
-    - GoogleAppMeasurement (= 5.5.0)
+  - FirebaseAnalytics (5.8.1):
+    - FirebaseCore (~> 5.4)
+    - FirebaseInstanceID (~> 3.8)
+    - GoogleAppMeasurement (= 5.8.1)
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
     - GoogleUtilities/Network (~> 5.2)
     - "GoogleUtilities/NSData+zlib (~> 5.2)"
     - nanopb (~> 0.3)
-  - FirebaseAuth (5.3.0):
+  - FirebaseAuth (5.4.2):
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 5.2)
     - GoogleUtilities/Environment (~> 5.2)
     - GTMSessionFetcher/Core (~> 1.1)
   - FirebaseAuthInterop (1.0.0)
-  - FirebaseCore (5.2.0):
+  - FirebaseCore (5.4.1):
+    - GoogleUtilities/Environment (~> 5.2)
     - GoogleUtilities/Logger (~> 5.2)
-  - FirebaseDatabase (5.1.0):
+  - FirebaseDatabase (5.1.1):
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 5.2)
     - leveldb-library (~> 1.18)
-  - FirebaseFirestore (1.0.0):
+  - FirebaseFirestore (1.2.1):
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 5.2)
-    - FirebaseFirestore/abseil-cpp (= 1.0.0)
+    - FirebaseFirestore/abseil-cpp (= 1.2.1)
     - "gRPC-C++ (= 0.0.6)"
     - leveldb-library (~> 1.20)
     - nanopb (~> 0.3.901)
     - Protobuf (~> 3.1)
-  - FirebaseFirestore/abseil-cpp (1.0.0):
+  - FirebaseFirestore/abseil-cpp (1.2.1):
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 5.2)
     - "gRPC-C++ (= 0.0.6)"
     - leveldb-library (~> 1.20)
     - nanopb (~> 0.3.901)
     - Protobuf (~> 3.1)
-  - FirebaseFunctions (2.2.0):
+  - FirebaseFunctions (2.4.0):
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 5.2)
     - GTMSessionFetcher/Core (~> 1.1)
-  - FirebaseInstanceID (3.4.0):
+  - FirebaseInstanceID (3.8.1):
     - FirebaseCore (~> 5.2)
-    - GoogleUtilities/Environment (~> 5.3)
-    - GoogleUtilities/UserDefaults (~> 5.3)
+    - GoogleUtilities/Environment (~> 5.2)
+    - GoogleUtilities/UserDefaults (~> 5.2)
   - FirebaseRemoteConfig (3.1.0):
     - FirebaseABTesting (~> 2.0)
     - FirebaseAnalytics (~> 5.3)
@@ -60,33 +61,33 @@ PODS:
     - GoogleUtilities/Environment (~> 5.2)
     - "GoogleUtilities/NSData+zlib (~> 5.2)"
     - Protobuf (~> 3.5)
-  - FirebaseStorage (3.1.0):
+  - FirebaseStorage (3.1.1):
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 5.2)
     - GTMSessionFetcher/Core (~> 1.1)
-  - GoogleAppMeasurement (5.5.0):
+  - GoogleAppMeasurement (5.8.1):
     - GoogleUtilities/AppDelegateSwizzler (~> 5.2)
     - GoogleUtilities/MethodSwizzler (~> 5.2)
     - GoogleUtilities/Network (~> 5.2)
     - "GoogleUtilities/NSData+zlib (~> 5.2)"
     - nanopb (~> 0.3)
-  - GoogleUtilities/AppDelegateSwizzler (5.3.7):
+  - GoogleUtilities/AppDelegateSwizzler (5.8.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (5.3.7)
-  - GoogleUtilities/Logger (5.3.7):
+  - GoogleUtilities/Environment (5.8.0)
+  - GoogleUtilities/Logger (5.8.0):
     - GoogleUtilities/Environment
-  - GoogleUtilities/MethodSwizzler (5.3.7):
+  - GoogleUtilities/MethodSwizzler (5.8.0):
     - GoogleUtilities/Logger
-  - GoogleUtilities/Network (5.3.7):
+  - GoogleUtilities/Network (5.8.0):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (5.3.7)"
-  - GoogleUtilities/Reachability (5.3.7):
+  - "GoogleUtilities/NSData+zlib (5.8.0)"
+  - GoogleUtilities/Reachability (5.8.0):
     - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (5.3.7):
+  - GoogleUtilities/UserDefaults (5.8.0):
     - GoogleUtilities/Logger
   - "gRPC-C++ (0.0.6)":
     - "gRPC-C++/Implementation (= 0.0.6)"
@@ -111,49 +112,50 @@ PODS:
     - nanopb/encode (= 0.3.901)
   - nanopb/decode (0.3.901)
   - nanopb/encode (0.3.901)
-  - Protobuf (3.6.1)
-  - RxAtomic (4.4.1)
-  - RxCocoa (4.4.1):
-    - RxSwift (~> 4.0)
-  - RxFirebase/Auth (0.3.4):
+  - Protobuf (3.7.0)
+  - RxCocoa (5.0.0):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxFirebase/Auth (0.3.7):
     - RxFirebaseAuthentication (~> 0.3)
-  - RxFirebase/Database (0.3.4):
+  - RxFirebase/Database (0.3.7):
     - RxFirebaseDatabase (~> 0.3)
-  - RxFirebase/Firestore (0.3.4):
+  - RxFirebase/Firestore (0.3.7):
     - RxFirebaseFirestore (~> 0.3)
-  - RxFirebase/Functions (0.3.4):
+  - RxFirebase/Functions (0.3.7):
     - RxFirebaseFunctions (~> 0.3)
-  - RxFirebase/RemoteConfig (0.3.4):
+  - RxFirebase/RemoteConfig (0.3.7):
     - RxFirebaseRemoteConfig (~> 0.3)
-  - RxFirebase/Storage (0.3.4):
+  - RxFirebase/Storage (0.3.7):
     - RxFirebaseStorage (~> 0.3)
-  - RxFirebaseAuthentication (0.3.4):
+  - RxFirebaseAuthentication (0.3.7):
     - FirebaseAuth (~> 5)
     - FirebaseCore (~> 5)
-    - RxCocoa (~> 4)
-    - RxSwift (~> 4)
-  - RxFirebaseDatabase (0.3.4):
+    - RxCocoa (~> 5)
+    - RxSwift (~> 5)
+  - RxFirebaseDatabase (0.3.7):
     - FirebaseDatabase (~> 5)
-    - RxCocoa (~> 4)
-    - RxSwift (~> 4)
-  - RxFirebaseFirestore (0.3.4):
+    - RxCocoa (~> 5)
+    - RxSwift (~> 5)
+  - RxFirebaseFirestore (0.3.7):
     - FirebaseFirestore (~> 1)
-    - RxCocoa (~> 4)
-    - RxSwift (~> 4)
-  - RxFirebaseFunctions (0.3.4):
+    - RxCocoa (~> 5)
+    - RxSwift (~> 5)
+  - RxFirebaseFunctions (0.3.7):
     - FirebaseFunctions (~> 2)
-    - RxCocoa (~> 4)
-    - RxSwift (~> 4)
-  - RxFirebaseRemoteConfig (0.3.4):
+    - RxCocoa (~> 5)
+    - RxSwift (~> 5)
+  - RxFirebaseRemoteConfig (0.3.7):
     - FirebaseRemoteConfig (~> 3)
-    - RxCocoa (~> 4)
-    - RxSwift (~> 4)
-  - RxFirebaseStorage (0.3.4):
+    - RxCocoa (~> 5)
+    - RxSwift (~> 5)
+  - RxFirebaseStorage (0.3.7):
     - FirebaseStorage (~> 3)
-    - RxCocoa (~> 4)
-    - RxSwift (~> 4)
-  - RxSwift (4.4.1):
-    - RxAtomic (~> 4.4)
+    - RxCocoa (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.0.0):
+    - RxSwift (~> 5)
+  - RxSwift (5.0.0)
 
 DEPENDENCIES:
   - RxFirebase/Auth (from `./`)
@@ -191,8 +193,8 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - Protobuf
-    - RxAtomic
     - RxCocoa
+    - RxRelay
     - RxSwift
 
 EXTERNAL SOURCES:
@@ -214,34 +216,34 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   BoringSSL-GRPC: 2a230d9cd93e7ce39916044f645cebb31f37dde6
   FirebaseABTesting: 1f50b8d50f5e3469eea54e7463a7b7fe221d1f5e
-  FirebaseAnalytics: d35d47c03c50c73c14a7fd31463c5775843e78a9
-  FirebaseAuth: c9b3ff063c223d2841d97240af547ce511bce19a
+  FirebaseAnalytics: ece1aa57a4f43c64d53a648b5a5e05151aae947b
+  FirebaseAuth: dd7bbf03a5aee0eafb3a1aee4d2812bd74bac890
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
-  FirebaseCore: ea2d1816723ef21492b8e9113303e1350db5e08c
-  FirebaseDatabase: 23acb0c53cd4d4070a427b60100b2e4aaa97c45d
-  FirebaseFirestore: 6f2b93b4f7bb8416628142763c91ccc00fa04c86
-  FirebaseFunctions: f35dd01ba4cfd036c1c521b3ed99851d7ec08c70
-  FirebaseInstanceID: 97ea7a5dca9afd72c79bfcdddb7a44aa1cbb42a1
+  FirebaseCore: f1a9a8be1aee4bf71a2fc0f4096df6788bdfda61
+  FirebaseDatabase: 2c15b0ea6f2c6eb5e57413f9d6340f1e50b81ae3
+  FirebaseFirestore: faca891c0f0d1d6c10c793473e2f6a29d75014b5
+  FirebaseFunctions: 35b530c69ef8c322c414104280d36a06347a5d49
+  FirebaseInstanceID: a122b0c258720cf250551bb2bedf48c699f80d90
   FirebaseRemoteConfig: 7e11c65f0769c09bff6947997c209515058c5318
-  FirebaseStorage: 29075f874c2b3cf61e5221a62c4ceefc809e5412
-  GoogleAppMeasurement: 621f3bc6211d5ba548debe01fafad30cf5ab6859
-  GoogleUtilities: 111a012f4c3a29c9e7c954c082fafd6ee3c999c0
+  FirebaseStorage: 6162ef4322502b818d9de0ec552f5226d283de43
+  GoogleAppMeasurement: ffe513e90551844a739e7bcbb1d2aca1c28a4338
+  GoogleUtilities: 04fce34bcd5620c1ee76fb79172105c74a4df335
   "gRPC-C++": e76441995900ac90e9bd98644ab4733f12521edf
   gRPC-Core: 4028031ed2c5267cca0d846c876d8046b1ecb9b6
   GTMSessionFetcher: 32aeca0aa144acea523e1c8e053089dec2cb98ca
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
-  Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
-  RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
-  RxCocoa: 2f35a76bf8887872e28a1914112395b11b8e0e64
-  RxFirebase: 77493b62bfafe7d4dbb404bd06874756f29465ab
-  RxFirebaseAuthentication: 9dc412659765fe6a873b996cfd042b745cb643b4
-  RxFirebaseDatabase: c75bd954c983fdf134f13f8f46d75058e83eb822
-  RxFirebaseFirestore: b24cc69850aa85d5efdd6ad39f4308017cd76e86
-  RxFirebaseFunctions: 24ad39bbefbf14d82954f12772339c678bef9dfb
-  RxFirebaseRemoteConfig: 24d98dac90dbf707b9b2d9bb4e67dd4128e2ddc7
-  RxFirebaseStorage: fe6ec6aa4a2e4bc985f0dcd9fc4ea9ade4b8edf2
-  RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
+  Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
+  RxCocoa: fcf32050ac00d801f34a7f71d5e8e7f23026dcd8
+  RxFirebase: 6fbefc4dfac1c8e583421a07491f7789aaf69526
+  RxFirebaseAuthentication: 1d24e69a6e27251dceaf0711f25247f4f045353e
+  RxFirebaseDatabase: a9899c39f308ecbab3c2067c73037289ac2346cc
+  RxFirebaseFirestore: e9074d983d4d6c84181b05a30382e96ce0610676
+  RxFirebaseFunctions: 039ca21673dec23ccb6a326f6754384fa913bf02
+  RxFirebaseRemoteConfig: 49dd0bc2858e703e6b075aebd0b18b6ed10d7a44
+  RxFirebaseStorage: 18ff2a5c3385392bbb2f7bbe6d9e678e3a406f2b
+  RxRelay: 4f7409406a51a55cd88483f21ed898c234d60f18
+  RxSwift: 8b0671caa829a763bbce7271095859121cbd895f
 
 PODFILE CHECKSUM: 6b5209972f53f589215fcd40d8892f3d937408a6
 
