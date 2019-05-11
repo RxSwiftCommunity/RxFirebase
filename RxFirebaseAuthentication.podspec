@@ -28,8 +28,8 @@ Pod::Spec.new do |s|
     s.static_framework = true
     s.dependency 'RxSwift', '~> 5'
     s.dependency 'RxCocoa', '~> 5'
-    s.dependency 'FirebaseAuth', '~> 5'
-    s.dependency 'FirebaseCore', '~> 5'
+    s.dependency 'FirebaseAuth', '~> 6'
+    s.dependency 'FirebaseCore', '~> 6'
 
     s.source_files = 'Sources/Auth/**/*'
 end
