@@ -79,16 +79,15 @@ extension Reactive where Base: DatabaseQuery {
      * @param block The block that should be called.  It is passed the data as a FIRDataSnapshot.
      * @param cancelBlock The block that will be called if you don't have permission to access this data
      */
-    public func observeSingleEvent(_ eventType: DataEventType) -> Observable<DataSnapshot> {
-        return Observable.create { observer in
-            self.base.observeSingleEvent(of: eventType, with: { snapshot in
-                observer.onNext(snapshot)
-                observer.onCompleted()
-            }, withCancel: { error in
-                observer.onError(error)
+    public func observeSingleEvent(_ eventType: DataEventType) -> Single<DataSnapshot> {
+        return Single.create(subscribe: { (singleEventListener) -> Disposable in
+            self.base.observeSingleEvent(of: eventType, with: { (snapshot) in
+                singleEventListener(.success(snapshot))
+            }, withCancel: { (error) in
+                singleEventListener(.error(error))
             })
             return Disposables.create()
-        }
+        })
     }
     
     /**
@@ -101,15 +100,14 @@ extension Reactive where Base: DatabaseQuery {
      * @param block The block that should be called.  It is passed the data as a FIRDataSnapshot and the previous child's key.
      * @param cancelBlock The block that will be called if you don't have permission to access this data
      */
-    public func observeSingleEventAndPreviousSiblingKey(_ eventType: DataEventType) -> Observable<PreviousSiblingKeyDataSnapshot> {
-        return Observable.create { observer in
-            self.base.observeSingleEvent(of: eventType, andPreviousSiblingKeyWith: { snapshot, prevKey in
-                observer.onNext(PreviousSiblingKeyDataSnapshot(snapshot, prevKey))
-                observer.onCompleted()
-            }, withCancel: { error in
-                observer.onError(error)
+    public func observeSingleEventAndPreviousSiblingKey(_ eventType: DataEventType) -> Single<PreviousSiblingKeyDataSnapshot> {
+        return Single.create(subscribe: { (singleEventListener) -> Disposable in
+            self.base.observeSingleEvent(of: eventType, andPreviousSiblingKeyWith: { (snapshot, prevKey) in
+                singleEventListener(.success(PreviousSiblingKeyDataSnapshot(snapshot, prevKey)))
+            }, withCancel: { (error) in
+                singleEventListener(.error(error))
             })
             return Disposables.create()
-        }
+        })
     }
 }
