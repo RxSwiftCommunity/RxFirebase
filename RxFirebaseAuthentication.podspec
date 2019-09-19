@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'RxFirebaseAuthentication'
-    s.version          = '0.3.7'
+    s.version          = '0.3.8'
     s.summary          = 'RxSwift extensions for FirebaseAuth.'
     
     # This description is used to generate tags and improve search results.
@@ -28,8 +28,8 @@ Pod::Spec.new do |s|
     s.static_framework = true
     s.dependency 'RxSwift', '~> 5'
     s.dependency 'RxCocoa', '~> 5'
-    s.dependency 'FirebaseAuth', '~> 5'
-    s.dependency 'FirebaseCore', '~> 5'
+    s.dependency 'FirebaseAuth'
+    s.dependency 'FirebaseCore'
 
     s.source_files = 'Sources/Auth/**/*'
 end

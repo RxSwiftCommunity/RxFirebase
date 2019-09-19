@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'RxFirebaseStorage'
-    s.version          = '0.3.7'
+    s.version          = '0.3.8'
     s.summary          = 'RxSwift extensions for FirebaseStorage.'
     
     # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
     s.static_framework = true
     s.dependency 'RxSwift', '~> 5'
     s.dependency 'RxCocoa', '~> 5'
-    s.dependency 'FirebaseStorage', '~> 3'
+    s.dependency 'FirebaseStorage'
 
     s.source_files = 'Sources/Storage/**/*'
 end
