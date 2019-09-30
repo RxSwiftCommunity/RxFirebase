@@ -16,8 +16,6 @@ Swift 4.0
 RxFirebase is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following lines to your Podfile:
 
-### iOS
-
 ```ruby
 pod 'RxFirebase/Firestore'
 pod 'RxFirebase/RemoteConfig'
@@ -25,14 +23,6 @@ pod 'RxFirebase/Database'
 pod 'RxFirebase/Storage'
 pod 'RxFirebase/Auth'
 pod 'RxFirebase/Functions'
-```
-
-### tvOS/macOS
-
-```ruby
-pod 'RxFirebaseAuthentication'
-pod 'RxFirebaseStorage'
-pod 'RxFirebaseDatabase'
 ```
 
 ## Usage
