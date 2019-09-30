@@ -22,11 +22,13 @@ Pod::Spec.new do |s|
     
     s.cocoapods_version = '>= 1.4.0'
     s.ios.deployment_target = '8.0'
+    s.osx.deployment_target = '10.11'
+    s.tvos.deployment_target = '10.0'
 
     s.static_framework = true
     s.dependency 'RxSwift', '~> 5'
     s.dependency 'RxCocoa', '~> 5'
-    s.dependency 'FirebaseFirestore', '~> 1'
+    s.dependency 'FirebaseFirestore', '~> 1.5'
 
     s.source_files = 'Sources/Firestore/**/*'
 end

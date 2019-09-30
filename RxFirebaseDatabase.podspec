@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
     
     s.cocoapods_version = '>= 1.4.0'
     s.ios.deployment_target = '8.0'
-    s.osx.deployment_target = '10.10'
+    s.osx.deployment_target = '10.11'
     s.tvos.deployment_target = '10.0'
 
     s.static_framework = true
