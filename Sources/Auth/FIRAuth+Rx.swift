@@ -47,7 +47,7 @@ extension Reactive where Base: Auth {
      */
     public func fetchProviders(forEmail email: String) -> Observable<[String]> {
         return Observable.create { observer in
-            self.base.fetchProviders(forEmail: email) { providers, error in
+            self.base.fetchSignInMethods(forEmail: email) { providers, error in
                 guard let error = error else {
                     observer.onNext(providers ?? [])
                     observer.onCompleted()
@@ -59,7 +59,7 @@ extension Reactive where Base: Auth {
         }
     }
     
-    /** 
+    /**
      @brief Fetches the list of all sign-in methods previously used for the provided email address.
      
      @param email The email address for which to obtain a list of sign-in methods.
@@ -155,7 +155,7 @@ extension Reactive where Base: Auth {
         }
     }
     
-    /** 
+    /**
      @brief Asynchronously signs in to Firebase with the given 3rd-party credentials (e.g. a Facebook
      login Access Token, a Google ID Token/Access Token pair, etc.) and returns additional
      identity provider data.
@@ -197,7 +197,7 @@ extension Reactive where Base: Auth {
      */
     public func signInAndRetrieveData(with credential: AuthCredential) -> Observable<AuthDataResult> {
         return Observable.create { observer in
-            self.base.signInAndRetrieveData(with: credential) { auth, error in
+            self.base.signIn(with: credential) { auth, error in
                 if let error = error {
                     observer.onError(error)
                 } else if let auth = auth {
@@ -270,7 +270,7 @@ extension Reactive where Base: Auth {
         }
     }
     
-    /** 
+    /**
      @brief Creates and, on success, signs in a user with the given email address and password.
      
      @param email The user's email address.
@@ -339,7 +339,7 @@ extension Reactive where Base: Auth {
         }
     }
     
-    /** 
+    /**
      @brief Checks the validity of an out of band code.
      
      @param code The out of band code to check validity.
@@ -360,7 +360,7 @@ extension Reactive where Base: Auth {
         }
     }
     
-    /** 
+    /**
      @brief Checks the validity of a verify password reset code.
      
      @param code The password reset code to be verified.
@@ -405,7 +405,7 @@ extension Reactive where Base: Auth {
         }
     }
     
-    /** 
+    /**
      @brief Initiates a password reset for the given email address.
      
      @param email The email address of the user.
@@ -531,7 +531,7 @@ extension Reactive where Base: Auth {
         }
     }
     
-    /** 
+    /**
      @brief Registers a block as an "ID token did change" listener. To be invoked when:
      
      + The block is registered as a listener,
