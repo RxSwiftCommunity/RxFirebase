@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'RxFirebaseFirestore'
-    s.version          = '0.3.8'
+    s.version          = '0.3.9'
     s.summary          = 'RxSwift extensions for FirebaseFirestore.'
     
     # This description is used to generate tags and improve search results.
