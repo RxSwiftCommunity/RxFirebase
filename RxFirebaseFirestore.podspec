@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
     s.static_framework = true
     s.dependency 'RxSwift', '~> 5'
     s.dependency 'RxCocoa', '~> 5'
-    s.dependency 'FirebaseFirestore', '~> 1.5'
+    s.dependency 'FirebaseFirestore', '~> 1.1'
 
     s.source_files = 'Sources/Firestore/**/*'
 end
