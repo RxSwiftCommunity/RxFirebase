@@ -1,5 +1,5 @@
 language: swift
-osx_image: xcode10.2
+osx_image: xcode11.4
 install:
 script:
  # https://github.com/travis-ci/travis-ci/issues/4190
