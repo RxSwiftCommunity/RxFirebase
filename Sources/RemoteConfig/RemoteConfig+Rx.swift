@@ -20,7 +20,7 @@ extension Reactive where Base: RemoteConfig {
             self.base.fetch { status, error in
                 guard let error = error else {
                     if activateFetched, status == .success {
-                        self.base.activateFetched()
+                        self.base.activate()
                     }
                     observer.onNext(status)
                     observer.onCompleted()
@@ -42,7 +42,7 @@ extension Reactive where Base: RemoteConfig {
             self.base.fetch(withExpirationDuration: duration) { status, error in
                 guard let error = error else {
                     if activateFetched, status == .success {
-                        self.base.activateFetched()
+                        self.base.activate()
                     }
                     observer.onNext(status)
                     observer.onCompleted()

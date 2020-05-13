@@ -186,7 +186,7 @@ extension Reactive where Base: User {
      */
     public func reauthenticateAndRetrieveData(with credential: AuthCredential) -> Observable<AuthDataResult> {
         return Observable.create { observer in
-            self.base.reauthenticateAndRetrieveData(with: credential) { result, error in
+            self.base.reauthenticate(with: credential) { result, error in
                 if let error = error {
                     observer.onError(error)
                 } else if let result = result {
@@ -296,7 +296,7 @@ extension Reactive where Base: User {
         }
     }
     
-    /** 
+    /**
      @brief Associates a user account from a third-party identity provider with this user and
      returns additional identity provider data.
      
@@ -322,7 +322,7 @@ extension Reactive where Base: User {
      */
     public func linkAndRetrieveData(with credential: AuthCredential) -> Observable<AuthDataResult> {
         return Observable.create { observer in
-            self.base.linkAndRetrieveData(with: credential) { result, error in
+            self.base.link(with: credential) { result, error in
                 if let error = error {
                     observer.onError(error)
                 } else if let result = result {
