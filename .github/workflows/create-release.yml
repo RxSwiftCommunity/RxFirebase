@@ -43,16 +43,6 @@ jobs:
           draft: false
           prerelease: false
 
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./RxFirebase.framework.zip
-          asset_name: RxFirebase.framework.zip
-          asset_content_type: application/zip
-
       - name: Deploy to Cocoapods
         run: |
           set -eo pipefail
