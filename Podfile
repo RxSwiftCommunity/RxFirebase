@@ -1,6 +1,8 @@
 use_frameworks!
 
 target 'RxFirebase_Example' do
+  platform :ios, '10.0'
+
   pod 'RxFirebase/Storage', :path => './'
   pod 'RxFirebase/Firestore', :path => './'
   pod 'RxFirebase/RemoteConfig', :path => './'
@@ -18,6 +20,8 @@ target 'RxFirebase_Example' do
 end
 
 target 'RxFirebase_Example_tvOS' do
+  platform :tvos, '10.0'
+
   pod 'RxFirebaseStorage', :path => './'
   pod 'RxFirebaseDatabase', :path => './'
   pod 'RxFirebaseAuthentication', :path => './'
