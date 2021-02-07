@@ -84,7 +84,7 @@ extension Reactive where Base: DatabaseQuery {
             self.base.observeSingleEvent(of: eventType, with: { (snapshot) in
                 singleEventListener(.success(snapshot))
             }, withCancel: { (error) in
-                singleEventListener(.error(error))
+                singleEventListener(.failure(error))
             })
             return Disposables.create()
         })
@@ -105,7 +105,7 @@ extension Reactive where Base: DatabaseQuery {
             self.base.observeSingleEvent(of: eventType, andPreviousSiblingKeyWith: { (snapshot, prevKey) in
                 singleEventListener(.success(PreviousSiblingKeyDataSnapshot(snapshot, prevKey)))
             }, withCancel: { (error) in
-                singleEventListener(.error(error))
+                singleEventListener(.failure(error))
             })
             return Disposables.create()
         })

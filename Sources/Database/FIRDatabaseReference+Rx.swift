@@ -24,7 +24,7 @@ extension Reactive where Base: DatabaseReference {
         return Single.create(subscribe: { (singleEventListener) -> Disposable in
             self.base.setValue(value, andPriority: priority, withCompletionBlock: { (error, ref) in
                 if let error = error {
-                    singleEventListener(.error(error))
+                    singleEventListener(.failure(error))
                 }
                 else {
                     singleEventListener(.success(ref))
@@ -47,7 +47,7 @@ extension Reactive where Base: DatabaseReference {
         return Single.create(subscribe: { (singleEventListener) -> Disposable in
             self.base.removeValue(completionBlock: { (error, ref) in
                 if let error = error {
-                    singleEventListener(.error(error))
+                    singleEventListener(.failure(error))
                 }
                 else {
                     singleEventListener(.success(ref))
@@ -84,7 +84,7 @@ extension Reactive where Base: DatabaseReference {
         return Single.create(subscribe: { (singleEventListener) -> Disposable in
             self.base.setPriority(priority, withCompletionBlock: { (error, ref) in
                 if let error = error {
-                    singleEventListener(.error(error))
+                    singleEventListener(.failure(error))
                 }
                 else {
                     singleEventListener(.success(ref))
@@ -104,7 +104,7 @@ extension Reactive where Base: DatabaseReference {
         return Single.create(subscribe: { (singleEventListener) -> Disposable in
             self.base.updateChildValues(values, withCompletionBlock: { (error, ref) in
                 if let error = error {
-                    singleEventListener(.error(error))
+                    singleEventListener(.failure(error))
                 }
                 else {
                     singleEventListener(.success(ref))
@@ -126,7 +126,7 @@ extension Reactive where Base: DatabaseReference {
         return Single.create(subscribe: { (singleEventListener) -> Disposable in
             self.base.onDisconnectSetValue(value, andPriority: priority, withCompletionBlock: { (error, ref) in
                 if let error = error {
-                    singleEventListener(.error(error))
+                    singleEventListener(.failure(error))
                 }
                 else {
                     singleEventListener(.success(ref))
@@ -147,7 +147,7 @@ extension Reactive where Base: DatabaseReference {
         return Single.create(subscribe: { (singleEventListener) -> Disposable in
             self.base.onDisconnectRemoveValue(completionBlock: { (error, ref) in
                 if let error = error {
-                    singleEventListener(.error(error))
+                    singleEventListener(.failure(error))
                 }
                 else {
                     singleEventListener(.success(ref))
@@ -169,7 +169,7 @@ extension Reactive where Base: DatabaseReference {
         return Single.create(subscribe: { (singleEventListener) -> Disposable in
             self.base.onDisconnectUpdateChildValues(values, withCompletionBlock: { (error, ref) in
                 if let error = error {
-                    singleEventListener(.error(error))
+                    singleEventListener(.failure(error))
                 }
                 else {
                     singleEventListener(.success(ref))
@@ -188,7 +188,7 @@ extension Reactive where Base: DatabaseReference {
         return Single.create(subscribe: { (singleEventListener) -> Disposable in
             self.base.cancelDisconnectOperations(completionBlock: { (error, ref) in
                 if let error = error {
-                    singleEventListener(.error(error))
+                    singleEventListener(.failure(error))
                 }
                 else {
                     singleEventListener(.success(ref))
@@ -219,7 +219,7 @@ extension Reactive where Base: DatabaseReference {
         return Single.create(subscribe: { (singleEventListener) -> Disposable in
             self.base.runTransactionBlock(block, andCompletionBlock: { (error, committed, snapshot) in
                 if let error = error {
-                    singleEventListener(.error(error))
+                    singleEventListener(.failure(error))
                 }
                 else {
                     singleEventListener(.success(DatabaseReferenceTransactionResult(committed, snapshot)))
