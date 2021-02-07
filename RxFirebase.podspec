@@ -32,7 +32,7 @@ Pod::Spec.new do |s|
     s.osx.deployment_target = '10.12'
     s.tvos.deployment_target = '10.0'
     s.static_framework = true
-    s.swift_versions = '5.0'
+    s.swift_versions = '5.1'
 
     s.subspec 'Firestore' do |firestore|
         firestore.dependency 'RxFirebaseFirestore', '~> 0.3'
