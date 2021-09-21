@@ -446,9 +446,9 @@ PODS:
   - nanopb/decode (2.30908.0)
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.0.0)
-  - RxCocoa (5.1.3):
-    - RxRelay (~> 5)
-    - RxSwift (~> 5)
+  - RxCocoa (6.2.0):
+    - RxRelay (= 6.2.0)
+    - RxSwift (= 6.2.0)
   - RxFirebase/Auth (0.3.11):
     - RxFirebaseAuthentication (~> 0.3)
   - RxFirebase/Database (0.3.11):
@@ -464,31 +464,31 @@ PODS:
   - RxFirebaseAuthentication (0.3.11):
     - FirebaseAuth (~> 8)
     - FirebaseCore (~> 8)
-    - RxCocoa (~> 5.1)
-    - RxSwift (~> 5.1)
+    - RxCocoa (~> 6)
+    - RxSwift (~> 6)
   - RxFirebaseDatabase (0.3.11):
     - FirebaseDatabase (~> 8)
-    - RxCocoa (~> 5.1)
-    - RxSwift (~> 5.1)
+    - RxCocoa (~> 6)
+    - RxSwift (~> 6)
   - RxFirebaseFirestore (0.3.11):
     - FirebaseFirestore (~> 8)
-    - RxCocoa (~> 5.1)
-    - RxSwift (~> 5.1)
+    - RxCocoa (~> 6)
+    - RxSwift (~> 6)
   - RxFirebaseFunctions (0.3.11):
     - FirebaseFunctions (~> 8)
-    - RxCocoa (~> 5.1)
-    - RxSwift (~> 5.1)
+    - RxCocoa (~> 6)
+    - RxSwift (~> 6)
   - RxFirebaseRemoteConfig (0.3.11):
     - FirebaseRemoteConfig (~> 8)
-    - RxCocoa (~> 5.1)
-    - RxSwift (~> 5.1)
+    - RxCocoa (~> 6)
+    - RxSwift (~> 6)
   - RxFirebaseStorage (0.3.11):
     - FirebaseStorage (~> 8)
-    - RxCocoa (~> 5.1)
-    - RxSwift (~> 5.1)
-  - RxRelay (5.1.3):
-    - RxSwift (~> 5)
-  - RxSwift (5.1.3)
+    - RxCocoa (~> 6)
+    - RxSwift (~> 6)
+  - RxRelay (6.2.0):
+    - RxSwift (= 6.2.0)
+  - RxSwift (6.2.0)
 
 DEPENDENCIES:
   - RxFirebase/Auth (from `./`)
@@ -567,16 +567,16 @@ SPEC CHECKSUMS:
   leveldb-library: 50c7b45cbd7bf543c81a468fe557a16ae3db8729
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
-  RxCocoa: e2ed092d5432e4296aa818021d27de4090ac0354
+  RxCocoa: 4baf94bb35f2c0ab31bc0cb9f1900155f646ba42
   RxFirebase: 39de0d171723e4c57b7c514dca8e775d1fd11a3a
-  RxFirebaseAuthentication: f39320eb74ca24b0f22c4649dedd5a59c66c5386
-  RxFirebaseDatabase: 9423b47012bb5b8c4c106dcd515a86041d27fb6e
-  RxFirebaseFirestore: d57627a5f9515eaae1e568e9319a8740f5780d7e
-  RxFirebaseFunctions: 7761b744e4312bc4ce14a0db40d29954120f5961
-  RxFirebaseRemoteConfig: 6859b3cc14a009ea36477d68d46d289e85ce9c13
-  RxFirebaseStorage: bef00e4e25876f9f026b1c2fcabc8f60ded8c05d
-  RxRelay: 5a18c2eb2d68326ebaf0112f80d837ae41b92b97
-  RxSwift: 915abbdfb62214aa89ccd0b194d44fb478019b27
+  RxFirebaseAuthentication: c15de45fca5f4d1ec1e965ab0c6dc6bc601153c6
+  RxFirebaseDatabase: d464f61583edb0cddca8a26e78f1bcee4b563d43
+  RxFirebaseFirestore: 64ef5874308ffd6e96e3ccbc0470957238a86c13
+  RxFirebaseFunctions: 7a250155a3ae3f860bd2bbcf4d08247a46575eb9
+  RxFirebaseRemoteConfig: 6ea9f6eb6a1a41e1835d255db2379d4f7ba0c0c3
+  RxFirebaseStorage: 70a8f7bdf5f197ba251286d31e5fb746892c6e74
+  RxRelay: e72dbfd157807478401ef1982e1c61c945c94b2f
+  RxSwift: d356ab7bee873611322f134c5f9ef379fa183d8f
 
 PODFILE CHECKSUM: 217d6e241a952d06db0cd2ac912fa96d8886c1d9
 
