@@ -26,9 +26,9 @@ Pod::Spec.new do |s|
     s.tvos.deployment_target = '10.0'
 
     s.static_framework = true
-    s.dependency 'RxSwift', '~> 5.1'
-    s.dependency 'RxCocoa', '~> 5.1'
-    s.dependency 'FirebaseRemoteConfig', '~> 7.0'
+    s.dependency 'RxSwift', '~> 6.2.0'
+    s.dependency 'RxCocoa', '~> 6.2.0'
+    s.dependency 'FirebaseRemoteConfig', '~> 7.8'
 
     s.source_files = 'Sources/RemoteConfig/**/*'
 end
