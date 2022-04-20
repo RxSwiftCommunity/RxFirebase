@@ -7,9 +7,10 @@
 
 ## Requirements
 
-Xcode 9.0
+Xcode 12.x
+Swift 5.x
 
-Swift 4.0
+For Xcode 11 and below, use RxFirebase 0.3.x
 
 ## Installation
 
