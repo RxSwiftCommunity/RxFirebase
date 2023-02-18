@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'RxFirebaseRemoteConfig'
-    s.version          = '0.3.11'
+    s.version          = '0.4.0'
     s.summary          = 'RxSwift extensions for FirebaseFirestore.'
 
     # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
     s.static_framework = true
     s.dependency 'RxSwift', '~> 5.1'
     s.dependency 'RxCocoa', '~> 5.1'
-    s.dependency 'FirebaseRemoteConfig', '~> 7'
+    s.dependency 'FirebaseRemoteConfig', '~> 10'
 
     s.source_files = 'Sources/RemoteConfig/**/*'
 end
